@@ -9,23 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/index")
 public class Index extends HttpServlet {
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-
-        String text =  config.getServletContext().getServerInfo();
-        System.out.println(text);
-        super.init(config);
-    }
-
-    @Override
-    public void destroy() {
-        //super.destroy();
-        System.out.println(this.getServletName() + " destroyed");
-    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,11 +21,14 @@ public class Index extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+
         resp.setContentType("text/html");
         PrintWriter writer = resp.getWriter();
 
-        writer.append("Email: " + req.getParameter("email") + "<br>");
-        writer.append("Password: " + req.getParameter("password") + "\n");
+        writer.append("Email: " + session.getAttribute("email") + "<br>");
+        writer.append("Password: " + session.getAttribute("password") + "\n");
+
 
     }
 }
