@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="recipe-hoarder-web:war">
+    <output-path>$PROJECT_DIR$/recipe-hoarder-web/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>recipe-hoarder-web</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="recipe-hoarder.war">
+      <element id="artifact" artifact-name="recipe-hoarder-web:war exploded" />
+    </root>
+  </artifact>
+</component>

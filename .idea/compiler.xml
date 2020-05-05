@@ -6,9 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="recipe-hoarder-java" />
-        <module name="recipe-hoarder" />
+        <module name="recipe-hoarder-test" />
+        <module name="recipe-hoarder-core" />
+        <module name="recipe-hoarder-web" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="recipe-hoarder" target="11" />
+      <module name="recipe-hoarder-core" target="11" />
+      <module name="recipe-hoarder-test" target="1.7" />
+      <module name="recipe-hoarder-web" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
