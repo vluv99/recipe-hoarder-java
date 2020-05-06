@@ -14,6 +14,7 @@
     <bytecodeTargetLevel>
       <module name="recipe-hoarder" target="11" />
       <module name="recipe-hoarder-core" target="11" />
+      <module name="recipe-hoarder-java" target="11" />
       <module name="recipe-hoarder-test" target="1.7" />
       <module name="recipe-hoarder-web" target="11" />
     </bytecodeTargetLevel>

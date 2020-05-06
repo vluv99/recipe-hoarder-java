@@ -1,3 +1,5 @@
+package com.vluv.recipe_hoarder_web.controllers;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
@@ -21,7 +23,10 @@ public class Index extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("email") == null){
+            req.getRequestDispatcher("/login").forward(req, resp);
+        }
 
         resp.setContentType("text/html");
         PrintWriter writer = resp.getWriter();

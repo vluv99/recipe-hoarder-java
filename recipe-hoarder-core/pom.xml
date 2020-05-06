@@ -19,6 +19,16 @@
             <version>5.4.15.Final</version>
             <type>pom</type>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.4.15.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.2.Final</version>
+        </dependency>
         <!-- Hibernate uses jboss-logging for logging, for the tutorials we will use the sl4fj-simple backend -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -29,7 +39,8 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.196</version>
+            <version>1.4.197</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

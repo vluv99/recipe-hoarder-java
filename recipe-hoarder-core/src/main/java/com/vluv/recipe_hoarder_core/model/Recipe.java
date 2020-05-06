@@ -1,20 +1,21 @@
 package com.vluv.recipe_hoarder_core.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table( name = "RECIPE" )
 public class Recipe {
-
-    private String id;
+    @Id
+    @GeneratedValue
+    private Integer id;
     private String name;
     private String description;
-    //private List<Ingredient> ingredients;
-    //private List<String> directions;
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
+    private List<String> ingredients = new ArrayList<>();
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
+    private List<String> directions = new ArrayList<>();
     private String cathegory;
     /*nehezseg
     * hany fore eleg
@@ -23,12 +24,11 @@ public class Recipe {
     public Recipe() {
     }
 
-    @Id
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -48,7 +48,7 @@ public class Recipe {
         this.description = description;
     }
 
-    /*public List<String> getIngredients() {
+    public List<String> getIngredients() {
         return ingredients;
     }
 
@@ -62,7 +62,7 @@ public class Recipe {
 
     public void setDirections(List<String> directions) {
         this.directions = directions;
-    }*/
+    }
 
     public String getCathegory() {
         return cathegory;

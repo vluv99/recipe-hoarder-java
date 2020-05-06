@@ -1,3 +1,5 @@
+package com.vluv.recipe_hoarder_web.controllers;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
@@ -12,7 +14,7 @@ import javax.servlet.http.HttpSession;
 public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("login.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)

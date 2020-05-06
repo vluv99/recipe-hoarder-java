@@ -15,7 +15,7 @@ public class App
     {
         //System.out.println( "Hello World!" );
 
-        Database asd = new Database();
+        Database asd = Database.getInstance();
         asd.setUp();
 
         Recipe recipe = new Recipe();
