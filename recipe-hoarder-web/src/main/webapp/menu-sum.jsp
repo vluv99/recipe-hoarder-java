@@ -13,8 +13,22 @@
 <%@ include file="WEB-INF/header.jsp" %>
 <main role="main">
     <div class="container">
-        <h1 style="margin-bottom: 40px" class="display-4 list-inline-item">Menus</h1>
+        <ul class="list-inline">
+            <h1 style="margin-bottom: 40px; margin-top: 30px" class="display-4 list-inline-item">Menus</h1>
 
+            <form action="" method="">
+                <div class="form-row">
+                    <div class="input-group mb-3">
+                        <input name="manu-name" type="text" class="form-control" placeholder="Menu's name"
+                               aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Create New Menu
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </ul>
 
 
         <div class="d-flex flex-wrap">
@@ -30,11 +44,10 @@
                     </ul>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </main>
-
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
