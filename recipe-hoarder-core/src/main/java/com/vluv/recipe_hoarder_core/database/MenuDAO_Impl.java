@@ -6,77 +6,111 @@ import com.vluv.recipe_hoarder_core.model.Recipe;
 import com.vluv.recipe_hoarder_core.model.User;
 
 import javax.persistence.EntityManager;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MenuDAO_Impl implements MenuDAO {
-    private EntityManager entityManager;
+    //private EntityManager entityManager;
 
     public MenuDAO_Impl(EntityManager entityManager) {
-        this.entityManager = entityManager;
+        //this.entityManager = entityManager;
     }
 
     @Override
-    public boolean AddMenu(Menu m) {
-        entityManager.getTransaction().begin();
+    public boolean AddMenu(Menu menu) {
+        try (
+                Connection c = DriverManager.getConnection(DBConfig.DB_CONN_STR);
+                PreparedStatement pst = c.prepareStatement("INSERT INTO menu (userId, title) VALUES (?,?)")
+        ) {
 
-        entityManager.persist(m);
-        entityManager.getTransaction().commit();
+            pst.setInt(1, menu.getUserId());
+            pst.setString(2, menu.getTitle());
 
-        return true;
+            return pst.executeUpdate() == 1;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Can't add the menu!");
+            return false;
+        }
     }
 
     @Override
-    public List<Menu> getMenus() {
-        return entityManager.createQuery( "from Menu ", Menu.class ).getResultList();
-    }
+    public Menu getMenu(int id){
+        try (
+                Connection c = DriverManager.getConnection(DBConfig.DB_CONN_STR);
+                PreparedStatement pst = c.prepareStatement("SELECT * FROM menu WHERE id = ?;")
+        ) {
 
-    @Override
-    public Menu getSingleMenu(int id) {
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
 
-        for (Menu m: this.getMenus()) {
-            if (m.getId() == id) {
-                return m;
+            if (rs.next()) {
+                Menu menu = new Menu();
+                menu.setId(rs.getInt("id"));
+                menu.setUserId(rs.getInt("userId"));
+                menu.setTitle(rs.getString("title"));
+
+                return menu;
             }
+        } catch (Exception e) {
+            System.out.println("Can't find the menu's id!");
+            e.printStackTrace();
         }
-        return null;    }
-
-    @Override
-    public List<Menu> getMenusOfUser(int userId) {
-
-        /* TODO
-        User u = getSingleUser(userId);
-        List<Menu> list = new ArrayList<>();
-
-        int i = 0;
-        for (Menu m : u.getMenuList() ) {
-            list.add(i, m);
-            i++;
-        }
-        return list;*/
         return null;
     }
 
+
     @Override
-    public void deleteMenu(int menuId) {
-        entityManager.getTransaction().begin();
+    public List<Menu> getMenusOfUser(int userId){
+        List<Menu> menus = new ArrayList<Menu>();
 
-        Menu m = this.getSingleMenu(menuId);
+        try (
+                Connection c = DriverManager.getConnection(DBConfig.DB_CONN_STR);
+                PreparedStatement pst = c.prepareStatement("SELECT * FROM menu WHERE userId = ?;")
+        ) {
 
-        entityManager.remove(m);
-        entityManager.getTransaction().commit();
+            pst.setInt(1, userId);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Menu menu = new Menu();
+                menu.setId(rs.getInt("id"));
+                menu.setUserId(rs.getInt("userId"));
+                menu.setTitle(rs.getString("title"));
+
+                menus.add(menu);
+            }
+            return menus;
+        } catch (Exception e) {
+            System.out.println("Can't find the user's menu!");
+            e.printStackTrace();
+        }
+        return null;
+
     }
 
     @Override
-    public void deleteRecipeFromMenu(int recipeId, int menuId) {
-        /* TODO
-        entityManager.getTransaction().begin();
+    public boolean deleteMenu(int menuId) {
+        try (
+                Connection c = DriverManager.getConnection(DBConfig.DB_CONN_STR);
+                PreparedStatement pst = c.prepareStatement("DELETE FROM menu WHERE id = ?;")
+        ) {
 
-        Recipe r = this.getSingleRecipe(recipeId);
+            pst.setInt(1, menuId);
 
-        entityManager.remove(r);
-        entityManager.getTransaction().commit();
+            return pst.executeUpdate() == 1;
 
-         */
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Couldn't delete the menu!");
+            return false;
+        }
     }
+
+
 }

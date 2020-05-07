@@ -14,17 +14,17 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate</groupId> <!--hibernate-->
             <artifactId>hibernate-core</artifactId>
             <version>5.4.15.Final</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate</groupId> <!--hibernate enititymanager-->
             <artifactId>hibernate-entitymanager</artifactId>
             <version>5.4.15.Final</version>
         </dependency>
-        <dependency>
+        <dependency> <!--hibernate persistance-->
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
             <version>1.0.2.Final</version>
@@ -44,14 +44,20 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.gwenn</groupId>
+            <groupId>com.github.gwenn</groupId> <!--sqlite for hibernate-->
             <artifactId>sqlite-dialect</artifactId>
             <version>0.1.0</version>
         </dependency>
         <dependency>
-            <groupId>org.xerial</groupId>
+            <groupId>org.xerial</groupId> <!--sqlite dialect for hibernate-->
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.31.1</version>
+        </dependency>
+
+        <dependency> <!--Bcrypt-->
+            <groupId>at.favre.lib</groupId>
+            <artifactId>bcrypt</artifactId>
+            <version>0.9.0</version>
         </dependency>
     </dependencies>
 

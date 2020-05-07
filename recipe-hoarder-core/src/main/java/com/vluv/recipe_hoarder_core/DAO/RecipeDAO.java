@@ -8,10 +8,9 @@ import java.util.List;
 public interface RecipeDAO {
 
     boolean addRecipe(Recipe r);
-    List<Recipe> getRecipes();
-    Recipe getSingleRecipe(int id);
-
     List<Recipe> getRecipesOfUser(int userId);
-
-    void deleteRecipe(int recipeId);
+    List<Recipe> getRecipesOfMenu(int menuId);
+    Recipe getRecipe(int id);
+    boolean deleteRecipe(int recipeId);
+    boolean deleteRecipeFromMenu(int menuId);
 }

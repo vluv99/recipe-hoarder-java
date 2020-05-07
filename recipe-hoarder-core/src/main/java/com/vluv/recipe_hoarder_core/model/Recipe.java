@@ -15,7 +15,6 @@ public class Recipe implements Serializable {
     private Integer menuId;
     private String name;
     private String description;
-
     @OneToMany(mappedBy = "recipeId")
     private List<Ingredient> ingredients;
     @ElementCollection
