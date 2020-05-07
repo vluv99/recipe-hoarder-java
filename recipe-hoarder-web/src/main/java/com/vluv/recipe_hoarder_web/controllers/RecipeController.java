@@ -1,6 +1,9 @@
 package com.vluv.recipe_hoarder_web.controllers;
 
+import com.vluv.recipe_hoarder_core.DAO.RecipeDAO;
+import com.vluv.recipe_hoarder_core.DAO.UserDAO;
 import com.vluv.recipe_hoarder_core.database.Database;
+import com.vluv.recipe_hoarder_core.model.Ingredient;
 import com.vluv.recipe_hoarder_core.model.Recipe;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -37,7 +41,14 @@ public class RecipeController extends HttpServlet {
         String cathegory = request.getParameter("cathegory");
 
         String str = request.getParameter("ingredients");
-        List<String> ingredients = Arrays.asList(str.split("\\r?\\n"));
+        List<String > s = Arrays.asList(str.split("\\r?\\n"));
+
+        List<Ingredient> ingredients = new  ArrayList<Ingredient>();
+        for (int i = 0; i<s.size(); i++){
+            Ingredient ing = new Ingredient();
+            ing.setName_amount(s.get(i));
+            ingredients.add(ing);
+        }
 
         str = request.getParameter("description");
         List<String> direction = Arrays.asList(str.split("\\r?\\n"));
@@ -50,11 +61,13 @@ public class RecipeController extends HttpServlet {
             recipe.setCathegory(cathegory);
             recipe.setIngredients(ingredients);
             recipe.setDirections(direction);
-            Database.getInstance().addRecipe(recipe);
+            recipe.setUserId((Integer) session.getAttribute("id")); //TODO set user id
+            RecipeDAO r = Database.getInstance().getRecipeDAO(); //TODO fix add method, it doesnt write out everything to the database
+            r.addRecipe(recipe);
         }
         else {
-            out.print("Sorry UserName or Password Error!");
-            RequestDispatcher rd=request.getRequestDispatcher("/recipe_hoarder_java_war");
+            out.print("Sorry, you must fill out all the fields!");
+            RequestDispatcher rd=request.getRequestDispatcher("/recipe_hoarder_java_war/api/recipe");
             rd.include(request, response);
 
         }

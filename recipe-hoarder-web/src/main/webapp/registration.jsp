@@ -14,7 +14,7 @@
 <main role="main" style="margin-top: 100px">
     <div class="container">
         <h1>Register</h1>
-        <form>
+        <form method="post" action="register">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="validationServerUsername">Email</label>

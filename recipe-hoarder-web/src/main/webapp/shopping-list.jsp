@@ -36,13 +36,22 @@
                 <div class="card-body">
 
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex justify-content-between">2 kg krumpli
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div style="margin-right: 20px;align-self: center;">2 kg krumpli</div>
                             <button type="button" class="btn btn-danger">Delete</button>
                         </li>
-                        <li class="list-group-item">2 kg krumpli</li>
-                        <li class="list-group-item">2 kg krumpli</li>
-                        <li class="list-group-item">2 kg krumpli</li>
-                        <li class="list-group-item">2 kg krumpli</li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div style="margin-right: 20px;align-self: center;">2 kg krumpli banan </div>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div style="margin-right: 20px;align-self: center;">2 kg ground beef with sauce</div>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div style="margin-right: 20px;align-self: center;">2 kg apple or pear</div>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </li>
                     </ul>
                 </div>
             </div>

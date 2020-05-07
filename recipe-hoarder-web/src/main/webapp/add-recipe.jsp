@@ -18,7 +18,7 @@
     <div class="container">
 
         <h3 style="margin-top: 30px" class="display-4">Add Recipe from URL</h3>
-        <form action="/api/recipe" method="post">
+        <form action="api/recipe" method="post">
             <div class="form-row">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Recipe's URL"
@@ -36,7 +36,7 @@
         <div role="separator"></div>
 
         <h3 class="display-4">Add Recipe Manually</h3>
-        <form action="/api/recipe" method="post">
+        <form action="api/recipe" method="post">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="name">Name</label>

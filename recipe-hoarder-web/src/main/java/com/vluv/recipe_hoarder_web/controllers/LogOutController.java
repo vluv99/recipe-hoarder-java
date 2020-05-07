@@ -16,6 +16,8 @@ public class LogOutController extends HttpServlet {
         req.getSession().removeAttribute("email");
         req.getSession().removeAttribute("password");
 
-        resp.sendRedirect("/recipe_hoarder_java_war/");
+        //resp.sendRedirect("/recipe_hoarder_java_war/");
+        req.getRequestDispatcher("/login.jsp").forward(req, resp);
+
     }
 }

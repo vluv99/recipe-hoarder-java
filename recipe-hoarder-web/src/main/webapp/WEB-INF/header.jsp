@@ -11,7 +11,12 @@
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-dark p-4">
-                <h5 class="text-white h4">Menu</h5>
+                <ul class="list-inline">
+                    <h5 class="text-white h4 list-inline-item">Menu</h5>
+                    <div class="list-inline-item text-white d-inline-flex p-2 bd-highlight border border-white rounded" style="margin:10px">You are logged in as &#32; <div style="margin-left: 5px" class="font-weight-bold text-white"> &#32;  <%= request.getSession().getAttribute("email")%>
+                        </div>
+                    </div>
+                </ul>
                 <a href="recipe-sum.jsp"><span style="margin: 10px" class="text-white"> Recipes </span></a>
                 <a href="add-recipe.jsp"><span style="margin: 10px" class="text-white"> Add Recipe </span></a>
                 <a href="menu-sum.jsp"><span style="margin: 10px" class="text-white"> Menus </span></a>
@@ -20,13 +25,14 @@
 
             </div>
         </div>
-        <nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-dark bg-dark d-flex justify-content-start">
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+            <div style="margin-left: 10px" class="text-white font-weight-lighter">Recipe-hoarder</div>
         </nav>
     </div>
 </header>

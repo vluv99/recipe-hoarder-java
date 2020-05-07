@@ -19,13 +19,14 @@
         <class>com.vluv.recipe_hoarder_core.model.Recipe</class>
 
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:db1;DB_CLOSE_DELAY=-1;MVCC=TRUE" />
+            <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:C:/Users/vluva/Documents/School/4.felev/Alkalmazasfejlesztes-I/project/recipe-hoarder-java/database.db" />
             <property name="javax.persistence.jdbc.user" value="sa" />
             <property name="javax.persistence.jdbc.password" value="" />
 
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLiteDialect"/>
         </properties>
 
     </persistence-unit>

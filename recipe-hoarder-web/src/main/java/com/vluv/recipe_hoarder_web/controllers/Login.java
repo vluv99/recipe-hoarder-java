@@ -1,5 +1,9 @@
 package com.vluv.recipe_hoarder_web.controllers;
 
+import com.vluv.recipe_hoarder_core.DAO.UserDAO;
+import com.vluv.recipe_hoarder_core.database.Database;
+import com.vluv.recipe_hoarder_core.model.User;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
@@ -27,17 +31,23 @@ public class Login extends HttpServlet {
         String n=request.getParameter("userMail");
         String p=request.getParameter("userPass");
 
-        if(p.equals("servlet")){
-            RequestDispatcher rd = request.getRequestDispatcher("recipe-sum.jsp");
-            session.setAttribute("email", n);
-            session.setAttribute("password", p);
-            rd.forward(request, response);
-        }
-        else {
-            out.print("Sorry UserName or Password Error!");
-            RequestDispatcher rd=request.getRequestDispatcher("/recipe_hoarder_java_war");
-            rd.include(request, response);
+        UserDAO u = Database.getInstance().getUserDAO();
 
+        for (User user : u.getUsers()) {
+            if ((user.getMail().equals(n) && user.getPassword().equals(p))){ //TODO check if database is empty!!
+                RequestDispatcher rd = request.getRequestDispatcher("recipe-sum.jsp");
+                session.setAttribute("id", u.getUserByEmail(n).getId());
+                session.setAttribute("email", n);
+                session.setAttribute("password", p);
+                rd.forward(request, response);
+            }
+            else {
+                out.print("Sorry UserName or Password Error!");
+                RequestDispatcher rd=request.getRequestDispatcher("/recipe_hoarder_java_war/login");
+                rd.include(request, response);
+
+            }
         }
+
     }
 }
