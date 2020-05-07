@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/index")
+@WebServlet(name = "indexController", urlPatterns = {"/"})
 public class Index extends HttpServlet {
 
     @Override
@@ -25,7 +25,7 @@ public class Index extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
         if (session == null || session.getAttribute("email") == null){
-            req.getRequestDispatcher("/login").forward(req, resp);
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }
 
         resp.setContentType("text/html");

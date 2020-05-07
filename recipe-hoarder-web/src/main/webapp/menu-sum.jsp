@@ -31,15 +31,15 @@
         </ul>
 
 
-        <div class="d-flex flex-wrap">
+        <div class="d-flex flex-wrap justify-content-center">
 
-            <div class="card" style="width: 18rem;">
+            <div class="card shadow-sm" style="width: 18rem; margin: 25px">
                 <div class="card-body">
                     <h5 class="card-title">Menu title</h5>
                     <h6 class="card-subtitle mb-2 text-muted">recipe no: 3</h6>
                     <p class="card-text">description</p>
                     <ul class="list-inline">
-                        <a href="recipe.jsp" class="card-link list-inline-item">Go to Menu</a>
+                        <a href="menu.jsp" class="card-link list-inline-item">Go to Menu</a>
                         <button type="button" class="btn btn-danger list-inline-item">Delete Menu</button>
                     </ul>
                 </div>

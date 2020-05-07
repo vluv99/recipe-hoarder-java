@@ -21,7 +21,8 @@
                     <input name="list-item" type="text" class="form-control" placeholder="1 kg potato"
                            aria-label="Recipient's username" aria-describedby="button-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-list-item">Add Ingredient to List
+                        <button class="btn btn-outline-secondary" type="button" id="button-list-item">Add Ingredient to
+                            List
                         </button>
                     </div>
                 </div>
@@ -30,15 +31,22 @@
 
         <br>
 
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">2 kg krumpli
-                <button type="button" class="btn btn-danger">Delete</button>
-            </li>
-            <li class="list-group-item">2 kg krumpli</li>
-            <li class="list-group-item">2 kg krumpli</li>
-            <li class="list-group-item">2 kg krumpli</li>
-            <li class="list-group-item">2 kg krumpli</li>
-        </ul>
+        <div class="d-flex justify-content-center">
+            <div class="card" style="max-width: 400px;">
+                <div class="card-body">
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between">2 kg krumpli
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </li>
+                        <li class="list-group-item">2 kg krumpli</li>
+                        <li class="list-group-item">2 kg krumpli</li>
+                        <li class="list-group-item">2 kg krumpli</li>
+                        <li class="list-group-item">2 kg krumpli</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
 
     </div>

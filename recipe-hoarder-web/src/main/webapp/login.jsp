@@ -25,6 +25,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <div>Don't have an account yet? Sign up <a href="registration.jsp" class="text-decoration-none">here</a>!</div>
     </div>
 </main>
 

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
+        //req.getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -28,7 +28,7 @@ public class Login extends HttpServlet {
         String p=request.getParameter("userPass");
 
         if(p.equals("servlet")){
-            RequestDispatcher rd=request.getRequestDispatcher("index");
+            RequestDispatcher rd = request.getRequestDispatcher("recipe-sum.jsp");
             session.setAttribute("email", n);
             session.setAttribute("password", p);
             rd.forward(request, response);

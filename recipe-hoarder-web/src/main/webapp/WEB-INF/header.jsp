@@ -16,7 +16,7 @@
                 <a href="add-recipe.jsp"><span style="margin: 10px" class="text-white"> Add Recipe </span></a>
                 <a href="menu-sum.jsp"><span style="margin: 10px" class="text-white"> Menus </span></a>
                 <a href="shopping-list.jsp"><span style="margin: 10px" class="text-white"> Shopping List </span></a>
-                <a><span style="margin: 10px" class="text-white"> Log Out </span></a>
+                <a href="log-out"><span style="margin: 10px" class="text-white"> Log Out </span></a>
 
             </div>
         </div>

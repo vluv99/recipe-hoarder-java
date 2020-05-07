@@ -32,9 +32,9 @@
             </div>
         </div>
 
-        <div class="d-flex flex-wrap">
+        <div class="d-flex flex-wrap justify-content-center">
 
-            <div class="card" style="width: 18rem;">
+            <div class="card shadow-sm" style="width: 18rem; margin: 25px">
                 <div class="card-body">
                     <h5 class="card-title">Recipe title</h5>
                     <h6 class="card-subtitle mb-2 text-muted">recipe cathegory</h6>

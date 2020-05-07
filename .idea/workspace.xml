@@ -25,62 +25,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5383b821-8133-4288-9f3e-9e9c0b5b7339" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/recipe_hoarder_java_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/recipe_hoarder_java_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_jsp_api_2_2_1_b032.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_112.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_32.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_15_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_4_15_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_2_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_1_3_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/recipe-hoarder-java.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/java/com/vluv/recipe_hoarder_web/controllers/RecipeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/WEB-INF/header.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/add-recipe.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/menu-sum.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/recipe-sum.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/recipe.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/shopping-list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon/android-chrome-192x192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon/android-chrome-512x512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon/apple-touch-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon/favicon-16x16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon/favicon-32x32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon/site.webmanifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/recipe_hoarder_web_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/recipe_hoarder_web_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_4_196.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_4_197.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_ibm_icu_icu4j_61_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_10.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_abego_treelayout_org_abego_treelayout_core_1_0_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_ST4_4_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr4_4_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr4_runtime_4_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr_runtime_3_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_javax_json_1_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_1_1_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/java/com/vluv/recipe_hoarder_web/controllers/LogOutController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/menu.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/registration.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-hoarder-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-hoarder-core/recipe-hoarder-core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-core/recipe-hoarder-core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-hoarder-core/src/main/java/com/vluv/recipe_hoarder_core/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-core/src/main/java/com/vluv/recipe_hoarder_core/database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-hoarder-core/src/main/java/com/vluv/recipe_hoarder_core/model/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-core/src/main/java/com/vluv/recipe_hoarder_core/model/Recipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-hoarder-test/recipe-hoarder-test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-test/recipe-hoarder-test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-hoarder-test/src/main/java/com/vluv/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-test/src/main/java/com/vluv/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/recipe-hoarder-web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/recipe-hoarder-web.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/src/main/java/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/java/com/vluv/recipe_hoarder_web/controllers/Index.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/src/main/java/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/java/com/vluv/recipe_hoarder_web/controllers/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/src/main/java/com/vluv/recipe_hoarder_web/controllers/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/java/com/vluv/recipe_hoarder_web/controllers/Index.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/src/main/java/com/vluv/recipe_hoarder_web/controllers/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/java/com/vluv/recipe_hoarder_web/controllers/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/WEB-INF/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/WEB-INF/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/WEB-INF/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/WEB-INF/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/menu-sum.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/menu-sum.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/recipe-sum.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/recipe-sum.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/recipe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/recipe.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/shopping-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/src/main/webapp/shopping-list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/WEB-INF/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/WEB-INF/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/WEB-INF/login.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/menu-sum.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/menu-sum.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/recipe-sum.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/recipe-sum.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/recipe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/recipe.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/shopping-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-hoarder-web/target/recipe-hoarder/shopping-list.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +93,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\School\4.felev\Alkalmazasfejlesztes\project\recipe-hoarder\recipe-hoarder-java\recipe-hoarder-web\src\main\webapp" />
       <recent name="C:\Users\vluva\Documents\School\4.felev\Alkalmazasfejlesztes-I\project\recipe-hoarder-java\recipe-hoarder-web\src\main\webapp" />
       <recent name="C:\Users\vluva\Documents\School\4.felev\Alkalmazasfejlesztes-I\project\recipe-hoarder-java\recipe-hoarder-web\src\main\webapp\WEB-INF" />
     </key>
@@ -263,10 +230,10 @@
       <screen x="0" y="0" width="1827" height="1080" />
     </state>
     <state x="643" y="294" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1827.1080/1920.388.962.768@0.0.1827.1080" timestamp="1588717680219" />
-    <state x="315" y="151" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588716548226">
+    <state x="381" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588793702239">
       <screen x="0" y="0" width="1827" height="1080" />
     </state>
-    <state x="315" y="151" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1827.1080/1920.388.962.768@0.0.1827.1080" timestamp="1588716548226" />
+    <state x="381" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1827.1080/1920.388.962.768@0.0.1827.1080" timestamp="1588793702239" />
     <state x="718" y="223" key="#com.intellij.ide.util.MemberChooser" timestamp="1588715503786">
       <screen x="0" y="0" width="1827" height="1080" />
     </state>

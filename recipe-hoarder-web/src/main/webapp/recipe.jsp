@@ -12,48 +12,53 @@
 <body>
 <%@ include file="WEB-INF/header.jsp" %>
 <main role="main">
-    <div class="container">
-        <ul class="list-inline">
-            <h1 class="display-4 list-inline-item">title</h1>
-            <small class="text-muted list-inline-item">cathegory</small>
-        </ul>
+    <div class="container d-flex justify-content-center">
 
-        <dl class="row">
-            <dt class="col-sm-3">Description</dt>
-            <dd class="col-sm-9"><% %> hhhhhhhhh</dd>
+        <div class="card border-dark mb-3" style="max-width: 60rem; margin-top: 40px">
 
-            <dt class="col-sm-3">Ingredients</dt>
-            <dd class="col-sm-9">
-                <ul>
-                    <li>1 kg ez</li>
-                    <li>1 kg az</li>
-                    <li>3 kg emaz</li>
-                    <li>4 kg jddd</li>
-                </ul>
-            </dd>
+            <div class="card-body text-dark">
+                <div class="card-header bg-transparent border-dark" style="margin-bottom: 15px">
+                    <h1 class="display-4 list-inline-item card-title">Title</h1>
+                    <small class="text-muted list-inline-item card-text">cathegory</small>
+                </div>
 
-            <dt class="col-sm-3">Directions</dt>
-            <dd class="col-sm-9">
-                <ol>
-                    <li>igy</li>
-                    <li>zgy</li>
-                    <li>amugy</li>
-                    <li>emigy</li>
-                </ol>
-            </dd>
-        </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Description</dt>
+                    <dd class="col-sm-9"><% %> hhhhhhhhh</dd>
 
-        <ul class="list-inline">
-            <button type="button" class="list-inline-item btn btn-secondary">Add Ingredients to Shopping List</button>
+                    <dt class="col-sm-3">Ingredients</dt>
+                    <dd class="col-sm-9">
+                        <ul>
+                            <li>1 kg ez</li>
+                            <li>1 kg az</li>
+                            <li>3 kg emaz</li>
+                            <li>4 kg jddd</li>
+                        </ul>
+                    </dd>
 
-            <button type="button" class="btn btn-warning">Back to Menu</button>
+                    <dt class="col-sm-3">Directions</dt>
+                    <dd class="col-sm-9">
+                        <ol>
+                            <li>igy</li>
+                            <li>zgy</li>
+                            <li>amugy</li>
+                            <li>emigy</li>
+                        </ol>
+                    </dd>
+                </dl>
+            </div>
+            <div class="card-footer bg-transparent border-dark d-flex justify-content-between">
+                <button type="button" class="list-inline-item btn btn-secondary">Add Ingredients to Shopping List
+                </button>
 
-            <button type="button" class="list-inline-item btn btn-danger">Delete Recipe</button>
-        </ul>
+                <button type="button" class="btn btn-warning">Back to Menu</button>
+
+                <button type="button" class="list-inline-item btn btn-danger">Delete Recipe</button>
+            </div>
+        </div>
 
     </div>
 </main>
-
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
