@@ -14,6 +14,7 @@ import java.util.List;
 
 public class RecipeDAO_Impl implements RecipeDAO {
     //private EntityManager entityManager;
+    private boolean resultBool = false;
 
     public RecipeDAO_Impl(EntityManager entityManager) {
         //this.entityManager = entityManager;
@@ -32,12 +33,16 @@ public class RecipeDAO_Impl implements RecipeDAO {
             pst.setString(4, recipe.getDescription());
             pst.setString(5, recipe.getCathegory());
 
-            return pst.executeUpdate() == 1;
+            resultBool = pst.executeUpdate() == 1;
 
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Can't add the recipe!");
             return false;
+        }
+
+        if (resultBool){
+            //add directions, add ingredients
         }
     }
 

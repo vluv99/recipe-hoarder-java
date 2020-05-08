@@ -3,6 +3,7 @@
 
 # User-specific stuff
 .idea/*
+.idea/
 *.iml
 *.iws
 
@@ -23,6 +24,6 @@ out/
 log/
 */target/
 
-.idea/
+
 
 database.db
