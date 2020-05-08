@@ -16,16 +16,15 @@ public class DirectionDAO_Impl implements DirectionDAO {
         //this.entityManager = entityManager;
     }
 
-    @Override
     public boolean addDirection(Direction step) {
         try (
                 Connection c = DriverManager.getConnection(DBConfig.DB_CONN_STR);
                 PreparedStatement pst = c.prepareStatement("INSERT INTO Directions (recipeId, orderNumber, direction) VALUES (?,?,?)")
         ) {
 
-            pst.setInt(1, step.getUserId());
-            pst.setInt(2, step.getMenuId());
-            pst.setString(3, step.getName());
+            //pst.setInt(1, step.getUserId());
+            //pst.setInt(2, step.getMenuId());
+            //pst.setString(3, step.getName());
 
             return pst.executeUpdate() == 1;
 
@@ -34,6 +33,11 @@ public class DirectionDAO_Impl implements DirectionDAO {
             System.out.println("Can't add the recipe!");
             return false;
         }
+    }
+
+    @Override
+    public boolean addDirection(String s) {
+        return false;
     }
 
     @Override

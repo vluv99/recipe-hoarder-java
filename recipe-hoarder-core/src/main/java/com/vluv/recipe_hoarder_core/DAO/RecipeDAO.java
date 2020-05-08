@@ -9,8 +9,6 @@ public interface RecipeDAO {
 
     boolean addRecipe(Recipe r);
     List<Recipe> getRecipesOfUser(int userId);
-    List<Recipe> getRecipesOfMenu(int menuId);
     Recipe getRecipe(int id);
     boolean deleteRecipe(int recipeId);
-    boolean deleteRecipeFromMenu(int menuId);
 }

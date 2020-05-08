@@ -28,11 +28,24 @@ public class Login extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        String n=request.getParameter("userMail");
-        String p=request.getParameter("userPass");
+        String userMail=request.getParameter("userMail");
+        String userPass=request.getParameter("userPass");
 
         UserDAO u = Database.getInstance().getUserDAO();
 
+        User user = u.login(userMail,userPass);
+
+        if(user == null){
+            out.print("Sorry UserName or Password Error!");
+        }
+        else{
+            session.setAttribute("currentUser", user);
+            //RequestDispatcher rd = request.getRequestDispatcher("recipe-sum.jsp");
+            //rd.forward(request, response);
+            response.sendRedirect("recipe-sum.jsp");
+        }
+
+        /*
         for (User user : u.getUsers()) {
             if ((user.getMail().equals(n) && user.getPassword().equals(p))){ //TODO check if database is empty!!
                 RequestDispatcher rd = request.getRequestDispatcher("recipe-sum.jsp");
@@ -42,12 +55,13 @@ public class Login extends HttpServlet {
                 rd.forward(request, response);
             }
             else {
-                out.print("Sorry UserName or Password Error!");
+
                 RequestDispatcher rd=request.getRequestDispatcher("/recipe_hoarder_java_war/login");
                 rd.include(request, response);
 
             }
         }
+         */
 
     }
 }

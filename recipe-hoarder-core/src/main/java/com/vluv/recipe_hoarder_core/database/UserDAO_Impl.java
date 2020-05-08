@@ -10,13 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO_Impl implements UserDAO {
-    //private EntityManager entityManager;
 
-    private static final String ADD_USER = "INSERT INTO user (name, password, mail, address) VALUES (?,?,?,?)";
-    private static final String GET_USER_BY_MAIL = "SELECT * FROM user WHERE mail = ?;";
+    private static final String ADD_USER = "INSERT INTO USER (name, password, mail, address) VALUES (?,?,?,?)";
+    private static final String GET_USER_BY_MAIL = "SELECT * FROM USER WHERE mail = ?;";
+    private static final String GET_USER_BY_ID = "SELECT * FROM USER WHERE id = ?;";
 
-    public UserDAO_Impl(EntityManager entityManager) {
-        //this.entityManager = entityManager;
+    public UserDAO_Impl() {
     }
 
     @Override
@@ -42,21 +41,18 @@ public class UserDAO_Impl implements UserDAO {
 
     @Override
     public User getUserById(int id){
-
-        List<User> users = new ArrayList<User>();
-
         try (
                 Connection c = DriverManager.getConnection(DBConfig.DB_CONN_STR);
-                PreparedStatement pst = c.prepareStatement(GET_USER_BY_MAIL)
+                PreparedStatement pst = c.prepareStatement(GET_USER_BY_ID)
         ) {
 
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 User user = new User();
-                user.setMail(rs.getString("mail"));
-                user.setPassword(rs.getString("password"));
                 user.setName(rs.getString("name"));
+                user.setPassword(rs.getString("password"));
+                user.setMail(rs.getString("mail"));
                 user.setAddress(rs.getString("address"));
                 return user;
             }
@@ -73,7 +69,7 @@ public class UserDAO_Impl implements UserDAO {
     public User login(String mail, String password) {
 
         try (Connection conn = DriverManager.getConnection(DBConfig.DB_CONN_STR);
-             PreparedStatement pst = conn.prepareStatement("SELECT * FROM User WHERE mail = ?")
+             PreparedStatement pst = conn.prepareStatement(GET_USER_BY_MAIL)
         ) {
             pst.setString(1, mail);
 
@@ -82,14 +78,10 @@ public class UserDAO_Impl implements UserDAO {
 
                 String dbPass = rs.getString("password");
 
-                BCrypt.Result result = BCrypt.verifyer().verify(password.toCharArray(), dbPass);
-                if(result.verified){
-                    User user = new User();
-                    user.setMail(rs.getString("mail"));
-                    user.setPassword(rs.getString("password"));
-                    user.setName(rs.getString("name"));
-                    user.setAddress(rs.getString("address"));
-                    return user;
+                //BCrypt.Result result = BCrypt.verifyer().verify(password.toCharArray(), dbPass);ű
+                //if(result.verified){
+                if(dbPass.equals(password)){
+                    return loadUser(rs);
                 }
             }
         } catch (SQLException e) {
@@ -97,6 +89,19 @@ public class UserDAO_Impl implements UserDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private User loadUser(ResultSet rs) throws SQLException {
+        User user = new User();
+        user.setId(rs.getInt("id"));
+        user.setMail(rs.getString("mail"));
+        user.setPassword(rs.getString("password"));
+        user.setName(rs.getString("name"));
+        user.setAddress(rs.getString("address"));
+
+        user.setRecipeList(Database.getInstance().getRecipeDAO().getRecipesOfUser(user.getId()));
+
+        return user;
     }
 
 }

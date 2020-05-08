@@ -13,7 +13,10 @@
             <div class="bg-dark p-4">
                 <ul class="list-inline">
                     <h5 class="text-white h4 list-inline-item">Menu</h5>
-                    <div class="list-inline-item text-white d-inline-flex p-2 bd-highlight border border-white rounded" style="margin:10px">You are logged in as &#32; <div style="margin-left: 5px" class="font-weight-bold text-white"> &#32;  <%= request.getSession().getAttribute("email")%>
+                    <div class="list-inline-item text-white d-inline-flex p-2 bd-highlight border border-white rounded" style="margin:10px">
+                        You are logged in as &#32;
+                        <div style="margin-left: 5px" class="font-weight-bold text-white">
+                            &#32;  ${currentUser.name}
                         </div>
                     </div>
                 </ul>

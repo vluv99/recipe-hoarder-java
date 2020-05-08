@@ -7,9 +7,15 @@ public class Direction implements Serializable {
     private Integer id;
     private Integer recipeId;
     private int orderNumber;
-    private List<String> direction;
+    private String direction;
 
     public Direction() {
+    }
+
+    public Direction(Integer recipeId, int orderNumber, String direction) {
+        this.recipeId = recipeId;
+        this.orderNumber = orderNumber;
+        this.direction = direction;
     }
 
     public Integer getId() {
@@ -36,11 +42,11 @@ public class Direction implements Serializable {
         this.orderNumber = orderNumber;
     }
 
-    public List<String> getDirection() {
+    public String getDirection() {
         return direction;
     }
 
-    public void setDirection(List<String> direction) {
+    public void setDirection(String direction) {
         this.direction = direction;
     }
 }

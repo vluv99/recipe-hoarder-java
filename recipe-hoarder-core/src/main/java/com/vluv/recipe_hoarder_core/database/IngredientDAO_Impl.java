@@ -15,7 +15,7 @@ import java.util.List;
 public class IngredientDAO_Impl implements IngredientDAO {
     //private EntityManager entityManager;
 
-    public IngredientDAO_Impl(EntityManager entityManager) {
+    public IngredientDAO_Impl() {
         //this.entityManager = entityManager;
     }
 
@@ -26,7 +26,7 @@ public class IngredientDAO_Impl implements IngredientDAO {
                 PreparedStatement pst = c.prepareStatement("INSERT INTO ingredient (userId, recipeId, name_amount) VALUES (?,?,?)")
         ) {
 
-            pst.setInt(1, ingredient.getUserId());
+            pst.setInt(1, ingredient.getRecipeId());
             pst.setInt(2, ingredient.getRecipeId());
             pst.setString(3, ingredient.getName_amount());
 
@@ -54,7 +54,7 @@ public class IngredientDAO_Impl implements IngredientDAO {
 
             while (rs.next()) {
                 Ingredient ingredient = new Ingredient();
-                ingredient.setUserId(rs.getInt("userId"));
+                ingredient.setRecipeId(rs.getInt("userId"));
                 ingredient.setRecipeId(rs.getInt("recipeId"));
                 ingredient.setName_amount(rs.getString("name_amount"));
 
@@ -80,7 +80,7 @@ public class IngredientDAO_Impl implements IngredientDAO {
 
             if (rs.next()) {
                 Ingredient ingredient = new Ingredient();
-                ingredient.setUserId(rs.getInt("userId"));
+                ingredient.setRecipeId(rs.getInt("userId"));
                 ingredient.setRecipeId(rs.getInt("recipeId"));
                 ingredient.setName_amount(rs.getString("name_amount"));
 

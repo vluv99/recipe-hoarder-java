@@ -16,7 +16,7 @@ import java.util.List;
 public class MenuDAO_Impl implements MenuDAO {
     //private EntityManager entityManager;
 
-    public MenuDAO_Impl(EntityManager entityManager) {
+    public MenuDAO_Impl() {
         //this.entityManager = entityManager;
     }
 

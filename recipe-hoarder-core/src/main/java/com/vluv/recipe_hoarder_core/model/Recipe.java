@@ -12,19 +12,26 @@ public class Recipe implements Serializable {
     @GeneratedValue
     private Integer id;
     private Integer userId;
-    private Integer menuId;
+    //private Integer menuId;
     private String name;
     private String description;
     @OneToMany(mappedBy = "recipeId")
-    private List<Ingredient> ingredients;
+    private List<Ingredient> ingredients = new ArrayList<>();
     @ElementCollection
-    private List<String> directions;
+    private List<Direction> directions = new ArrayList<>();
     private String cathegory;
     /*nehezseg
     * hany fore eleg
     * idotartam*/
 
     public Recipe() {
+    }
+
+    public Recipe(Integer userId, String name, String description, String cathegory) {
+        this.userId = userId;
+        this.name = name;
+        this.description = description;
+        this.cathegory = cathegory;
     }
 
     public Integer getId() {
@@ -59,11 +66,11 @@ public class Recipe implements Serializable {
         this.ingredients = ingredients;
     }
 
-    public List<String> getDirections() {
+    public List<Direction> getDirections() {
         return directions;
     }
 
-    public void setDirections(List<String> directions) {
+    public void setDirections(List<Direction> directions) {
         this.directions = directions;
     }
 
@@ -82,7 +89,7 @@ public class Recipe implements Serializable {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
-
+/*
     public Integer getMenuId() {
         return menuId;
     }
@@ -90,4 +97,6 @@ public class Recipe implements Serializable {
     public void setMenuId(Integer menuId) {
         this.menuId = menuId;
     }
+
+ */
 }

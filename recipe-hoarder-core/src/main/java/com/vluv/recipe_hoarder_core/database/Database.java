@@ -13,8 +13,8 @@ import javax.persistence.Persistence;
 
 public class Database {
     private static Database instance;
-    private EntityManager entityManager;
-    private EntityManagerFactory entityManagerFactory;
+    //private EntityManager entityManager;
+    //private EntityManagerFactory entityManagerFactory;
 
     public static Database getInstance() {
         if (instance == null) {
@@ -38,24 +38,31 @@ public class Database {
     public void setUp() {
         // like discussed with regards to SessionFactory, an EntityManagerFactory is set up once for an application
         // 		IMPORTANT: notice how the name here matches the name we gave the persistence-unit in persistence.xml!
-        entityManagerFactory = Persistence.createEntityManagerFactory("com.vluv.recipe_hoarder_core.model");
-        entityManager = entityManagerFactory.createEntityManager();
+        //entityManagerFactory = Persistence.createEntityManagerFactory("com.vluv.recipe_hoarder_core.model");
+        //entityManager = entityManagerFactory.createEntityManager();
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e1) {
+            e1.printStackTrace();
+        }
+
     }
 
     public UserDAO getUserDAO() {
-        return new UserDAO_Impl(entityManager);
+        return new UserDAO_Impl();
     }
 
     public RecipeDAO getRecipeDAO() {
-        return new RecipeDAO_Impl(entityManager);
+        return new RecipeDAO_Impl();
     }
 
     public MenuDAO getMenuDAO() {
-        return new MenuDAO_Impl(entityManager);
+        return new MenuDAO_Impl();
     }
 
     public IngredientDAO getIngredientDAO() {
-        return new IngredientDAO_Impl(entityManager);
+        return new IngredientDAO_Impl();
     }
 
 

@@ -34,12 +34,12 @@ public class Register extends HttpServlet {
         String addr = request.getParameter("address");
 
         UserDAO u = Database.getInstance().getUserDAO();
-        for (User user : u.getUsers() ) {
+        //for (User user : u.getUsers() ) {
             //TODO check if the email is unique
-        }
+        //}
 
         if(!mail.isEmpty() && !pass.isEmpty() && !name.isEmpty() && !addr.isEmpty()){
-            RequestDispatcher rd = request.getRequestDispatcher("recipe-sum.jsp");
+
 
             User user = new User();
             user.setMail(mail);
@@ -51,7 +51,10 @@ public class Register extends HttpServlet {
 
             session.setAttribute("email", mail);
             session.setAttribute("password", pass);
-            rd.forward(request, response);
+
+            //RequestDispatcher rd = request.getRequestDispatcher("recipe-sum.jsp");
+            //rd.forward(request, response);
+            response.sendRedirect("recipe-sum.jsp");
         }
         else {
             out.print("Empty fields!");

@@ -3,6 +3,7 @@ package com.vluv.recipe_hoarder_web.controllers;
 import com.vluv.recipe_hoarder_core.DAO.RecipeDAO;
 import com.vluv.recipe_hoarder_core.DAO.UserDAO;
 import com.vluv.recipe_hoarder_core.database.Database;
+import com.vluv.recipe_hoarder_core.model.Direction;
 import com.vluv.recipe_hoarder_core.model.Ingredient;
 import com.vluv.recipe_hoarder_core.model.Recipe;
 
@@ -51,7 +52,12 @@ public class RecipeController extends HttpServlet {
         }
 
         str = request.getParameter("directions");
-        List<String> direction = Arrays.asList(str.split("\\r?\\n"));
+        List<String> d = Arrays.asList(str.split("\\r?\\n"));
+        List<Direction> direction = new ArrayList<>();
+        for (int i = 0; i<d.size(); i++){
+            direction.add(new Direction(null, i, d.get(i)));
+        }
+
 
         if (name != null && descr != null && cathegory != null && !ingredients.isEmpty() && !direction.isEmpty()){
             //RequestDispatcher rd = request.getRequestDispatcher("recipe");

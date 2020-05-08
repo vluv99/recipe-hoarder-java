@@ -1,3 +1,5 @@
+<jsp:useBean id="currentUser" class="com.vluv.recipe_hoarder_core.model.User" scope="session" />
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -8,6 +10,9 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>Recipe-hoarder</title>
+
+
+
 </head>
 <body>
 <%@ include file="WEB-INF/header.jsp" %>
@@ -33,6 +38,12 @@
         </div>
 
         <div class="d-flex flex-wrap justify-content-center">
+
+            ${currentUser.recipeList.size()}
+            ${currentUser.recipeList.get(0).name}
+            <c:forEach items="${currentUser.recipeList.listIterator()}" var="text">
+                <c:out value="${text.name}"/>
+            </c:forEach>
 
             <div class="card shadow-sm" style="width: 18rem; margin: 25px">
                 <div class="card-body">
