@@ -46,12 +46,12 @@
                     <label for="cathegory">Cathegory</label>
                     <select name="cathegory" class="form-control" id="cathegory">
                         <option selected>Choose...</option>
-                        <option value="1">Appetizers, Beverages</option>
-                        <option value="2">Soups, Salads</option>
-                        <option value="3">Main Dishes</option>
-                        <option value="4">Breads, Rolls</option>
-                        <option value="5">Desserts</option>
-                        <option value="6">Miscellaneous</option>
+                        <option value="Appetizers, Beverages">Appetizers, Beverages</option>
+                        <option value="Soups, Salads">Soups, Salads</option>
+                        <option value="Main Dishes">Main Dishes</option>
+                        <option value="Breads, Rolls">Breads, Rolls</option>
+                        <option value="Desserts">Desserts</option>
+                        <option value="Miscellaneous">Miscellaneous</option>
                     </select>
                 </div>
             </div>

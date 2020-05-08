@@ -1,4 +1,6 @@
-<jsp:useBean id="currentUser" class="com.vluv.recipe_hoarder_core.model.User" scope="session" />
+<jsp:useBean id="currentUser" class="com.vluv.recipe_hoarder_core.model.User" scope="session"/>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
 <head>
@@ -12,7 +14,6 @@
     <title>Recipe-hoarder</title>
 
 
-
 </head>
 <body>
 <%@ include file="WEB-INF/header.jsp" %>
@@ -20,52 +21,53 @@
     <div class="container">
         <h1 style="margin-bottom: 40px; margin-top: 30px" class="display-4 list-inline-item">Recipes</h1>
 
-        <div style="margin-bottom: 30px" class="input-group">
-            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
-            <div class="input-group-append">
-                <button type="button" class="btn btn-outline-secondary">Search</button>
-                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="sr-only">Seach Cathegory</span>
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">cathegory 1</a>
-                    <a class="dropdown-item" href="#">cathegory 2</a>
-                    <a class="dropdown-item" href="#">cathegory 3</a>
-                    <div role="separator" class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">cathegory 4</a>
+        <form>
+            <div style="margin-bottom: 30px" class="input-group">
+                <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-outline-secondary">Search</button>
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Seach Cathegory</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">cathegory 1</a>
+                        <a class="dropdown-item" href="#">cathegory 2</a>
+                        <a class="dropdown-item" href="#">cathegory 3</a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">cathegory 4</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
 
         <div class="d-flex flex-wrap justify-content-center">
 
-            ${currentUser.recipeList.size()}
-            ${currentUser.recipeList.get(0).name}
-            <c:forEach items="${currentUser.recipeList.listIterator()}" var="text">
-                <c:out value="${text.name}"/>
-            </c:forEach>
-
-            <div class="card shadow-sm" style="width: 18rem; margin: 25px">
-                <div class="card-body">
-                    <h5 class="card-title">Recipe title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">recipe cathegory</h6>
-                    <p class="card-text">description</p>
-                    <ul class="list-inline">
-                        <a href="recipe.jsp" class="card-link list-inline-item">Go to Recipe</a>
-                        <div class="dropdown list-inline-item">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Add to Menu
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">one of my menus</a>
-                                <a class="dropdown-item" href="#">another one of my menus</a>
-                                <a class="dropdown-item" href="#">listing up existing menus</a>
+            <c:forEach items="${currentUser.recipeList}" var="recipe">
+                <div class="card shadow-sm" style="width: 18rem; margin: 25px">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <c:out value="${recipe.name}"/>
+                        </h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><c:out value="${recipe.cathegory}"/></h6>
+                        <p class="card-text"><c:out value="${recipe.description}"/></p>
+                        <ul class="list-inline">
+                            <a href="recipe.jsp?id=${recipe.id}" class="card-link list-inline-item">Go to Recipe</a>
+                            <div class="dropdown list-inline-item">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Add to Menu
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">one of my menus</a>
+                                    <a class="dropdown-item" href="#">another one of my menus</a>
+                                    <a class="dropdown-item" href="#">listing up existing menus</a>
+                                </div>
                             </div>
-                        </div>
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            </c:forEach>
 
 
         </div>

@@ -1,3 +1,19 @@
+<%@ page import="com.vluv.recipe_hoarder_core.model.Recipe" %>
+<jsp:useBean id="currentUser" class="com.vluv.recipe_hoarder_core.model.User" scope="session"/>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<% //get the parameter => recipe.jsp?id=5
+    int id = Integer.parseInt(request.getParameter("id"));
+    Recipe rec = new Recipe();
+    for (Recipe r : currentUser.getRecipeList()) { //go through the user's recipes
+        if (r.getId() == id){   //search for the same id
+            rec = r;
+            break; //stop if found
+        }
+    }
+%>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -18,31 +34,33 @@
 
             <div class="card-body text-dark">
                 <div class="card-header bg-transparent border-dark" style="margin-bottom: 15px">
-                    <h1 class="display-4 list-inline-item card-title">Title</h1>
-                    <small class="text-muted list-inline-item card-text">cathegory</small>
+                    <h1 class="display-4 list-inline-item card-title">
+                        <%=rec.getName()%>
+                    </h1>
+                    <small class="text-muted list-inline-item card-text">
+                        <%=rec.getCathegory()%>
+                    </small>
                 </div>
 
                 <dl class="row">
                     <dt class="col-sm-3">Description</dt>
-                    <dd class="col-sm-9"><% %> hhhhhhhhh</dd>
+                    <dd class="col-sm-9 font-italic"><%=rec.getDescription()%></dd>
 
                     <dt class="col-sm-3">Ingredients</dt>
                     <dd class="col-sm-9">
                         <ul>
-                            <li>1 kg ez</li>
-                            <li>1 kg az</li>
-                            <li>3 kg emaz</li>
-                            <li>4 kg jddd</li>
+                            <c:forEach items="<%=rec.getIngredients()%>" var="ingredients">
+                                <li><c:out value="${ingredients.name_amount}"/></li>
+                            </c:forEach>
                         </ul>
                     </dd>
 
                     <dt class="col-sm-3">Directions</dt>
                     <dd class="col-sm-9">
                         <ol>
-                            <li>igy</li>
-                            <li>zgy</li>
-                            <li>amugy</li>
-                            <li>emigy</li>
+                            <c:forEach items="<%=rec.getDirections()%>" var="directions">
+                                <li><c:out value="${directions.direction}"/></li>
+                            </c:forEach>
                         </ol>
                     </dd>
                 </dl>

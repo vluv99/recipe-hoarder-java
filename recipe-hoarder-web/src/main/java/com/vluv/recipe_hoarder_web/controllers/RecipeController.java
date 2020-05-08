@@ -6,6 +6,7 @@ import com.vluv.recipe_hoarder_core.database.Database;
 import com.vluv.recipe_hoarder_core.model.Direction;
 import com.vluv.recipe_hoarder_core.model.Ingredient;
 import com.vluv.recipe_hoarder_core.model.Recipe;
+import com.vluv.recipe_hoarder_core.model.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,7 +34,9 @@ public class RecipeController extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        User currentUser = (User) session.getAttribute("currentUser");
 
+        
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
@@ -62,14 +65,16 @@ public class RecipeController extends HttpServlet {
         if (name != null && descr != null && cathegory != null && !ingredients.isEmpty() && !direction.isEmpty()){
             //RequestDispatcher rd = request.getRequestDispatcher("recipe");
             Recipe recipe = new Recipe();
+            recipe.setUserId(currentUser.getId());
             recipe.setName(name);
             recipe.setDescription(descr);
             recipe.setCathegory(cathegory);
             recipe.setIngredients(ingredients);
             recipe.setDirections(direction);
-            recipe.setUserId((Integer) session.getAttribute("id")); //TODO set user id
-            RecipeDAO r = Database.getInstance().getRecipeDAO(); //TODO fix add method, it doesnt write out everything to the database
+            RecipeDAO r = Database.getInstance().getRecipeDAO();
             r.addRecipe(recipe);
+            currentUser.getRecipeList().add(recipe);
+            response.sendRedirect("/recipe-sum.jsp");
         }
         else {
             out.print("Sorry, you must fill out all the fields!");
