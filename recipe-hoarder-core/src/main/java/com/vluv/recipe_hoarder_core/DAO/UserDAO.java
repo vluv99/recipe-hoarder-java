@@ -7,8 +7,6 @@ import java.util.List;
 public interface UserDAO {
 
     boolean addUser(User u);
-    List<User> getUsers();
-    User getUserByEmail(String email);
-
-    User getSingleUser(int id);
+    public User getUserById(int id);
+    User login(String mail, String password);
 }

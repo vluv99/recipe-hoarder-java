@@ -50,7 +50,7 @@ public class RecipeController extends HttpServlet {
             ingredients.add(ing);
         }
 
-        str = request.getParameter("description");
+        str = request.getParameter("directions");
         List<String> direction = Arrays.asList(str.split("\\r?\\n"));
 
         if (name != null && descr != null && cathegory != null && !ingredients.isEmpty() && !direction.isEmpty()){
