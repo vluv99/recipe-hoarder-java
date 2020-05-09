@@ -1,6 +1,34 @@
+<%@ page import="com.vluv.recipe_hoarder_core.model.Recipe" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <jsp:useBean id="currentUser" class="com.vluv.recipe_hoarder_core.model.User" scope="session"/>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%
+    List<Recipe> searchList = new ArrayList<Recipe>();
+    String str = request.getParameter("search");
+    String str_type = request.getParameter("type_search");
+    if (str != null){
+        for (Recipe r : currentUser.getRecipeList()) {
+            if (r.getName().toLowerCase().contains(str.toLowerCase())){
+                searchList.add(r);
+            }
+        }
+        request.removeAttribute("search");
+    }else if (str_type != null) {
+        for (Recipe r : currentUser.getRecipeList()) {
+            if(str_type.equals(r.getCathegory())){
+                searchList.add(r);
+            }
+        }
+        request.removeAttribute("type_search");
+    }else {
+        searchList = currentUser.getRecipeList();
+    }
+
+    pageContext.setAttribute("recipes", searchList);
+%>
 
 <html>
 <head>
@@ -23,27 +51,29 @@
 
         <form>
             <div style="margin-bottom: 30px" class="input-group">
-                <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                <input name="search" type="text" class="form-control" aria-label="Text input with segmented dropdown button">
                 <div class="input-group-append">
-                    <button type="button" class="btn btn-outline-secondary">Search</button>
+                    <button type="submit" class="btn btn-outline-secondary">Search</button>
                     <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="sr-only">Seach Cathegory</span>
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">cathegory 1</a>
-                        <a class="dropdown-item" href="#">cathegory 2</a>
-                        <a class="dropdown-item" href="#">cathegory 3</a>
+                        <button name="type_search" type="submit" value="Appetizers, Beverages" class="btn btn-outline-secondary">Appetizers, Beverages</button>
+                        <button name="type_search" type="submit" value="Soups, Salads" class="btn btn-outline-secondary">Soups, Salads</button>
+                        <button name="type_search" type="submit" value="Main Dishes" class="btn btn-outline-secondary">Main Dishes</button>
+                        <button name="type_search" type="submit" value="Breads, Rolls" class="btn btn-outline-secondary">Breads, Rolls</button>
+                        <button name="type_search" type="submit" value="Desserts" class="btn btn-outline-secondary">Desserts</button>
                         <div role="separator" class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">cathegory 4</a>
+                        <button name="type_search" type="submit" value="Miscellaneous" class="btn btn-outline-secondary">Miscellaneous</button>
                     </div>
                 </div>
             </div>
         </form>
 
         <div class="d-flex flex-wrap justify-content-center">
-
-            <c:forEach items="${currentUser.recipeList}" var="recipe">
+<!--currentUser.recipeList-->
+            <c:forEach items="${recipes}" var="recipe">
                 <div class="card shadow-sm" style="width: 18rem; margin: 25px">
                     <div class="card-body">
                         <h5 class="card-title">
@@ -51,19 +81,10 @@
                         </h5>
                         <h6 class="card-subtitle mb-2 text-muted"><c:out value="${recipe.cathegory}"/></h6>
                         <p class="card-text"><c:out value="${recipe.description}"/></p>
-                        <ul class="list-inline" style="margin-bottom: 0">
-                            <a href="recipe.jsp?id=${recipe.id}" class="card-link list-inline-item">Go to Recipe</a>
+                        <div class="d-flex justify-content-between">
+                            <a href="recipe.jsp?id=${recipe.id}" style="margin-top: 8px;" class="card-link list-inline-item">Go to Recipe</a>
                             <form action="api/add-recipe-to-menu" method="post" class="list-inline-item">
-                                <!--<div class="form-group">
-                                    <select class="form-control">
-                                        <option selected>Add to Menu</option>
-                                        <c:forEach items="${currentUser.menuList}" var="menu">
-                                            <input hidden name="recipeId" value="${recipe.id}">
-                                            <option name="menuId" value="${menu.id}"><c:out value="${menu.title}"/></option>
-                                        </c:forEach>
-                                    </select>
-                                </div>-->
-                                <div class="dropdown">
+                                <div class="dropdown align-items-end">
                                         <button class="btn btn-secondary dropdown-toggle" type="button"
                                                 id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false">
@@ -77,7 +98,7 @@
                                         </div>
                                     </div>
                             </form>
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </c:forEach>

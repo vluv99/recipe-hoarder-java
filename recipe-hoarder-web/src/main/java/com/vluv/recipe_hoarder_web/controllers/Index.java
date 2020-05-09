@@ -32,6 +32,7 @@ public class Index extends HttpServlet {
         writer.append("Email: " + session.getAttribute("email") + "<br>");
         writer.append("Password: " + session.getAttribute("password") + "\n");
 
+        resp.sendRedirect("recipe-sum.jsp");
 
     }
 }

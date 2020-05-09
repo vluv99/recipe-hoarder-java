@@ -39,24 +39,28 @@ public class AddRecipeToMenuController extends HttpServlet {
         int recipeId = Integer.parseInt(request.getParameter("recipeId"));
         Recipe recipe = recipeDAO.getRecipe(recipeId);
         int menuId = Integer.parseInt(request.getParameter("menuId"));
-        List<Menu> menuList = currentUser.getMenuList();
+        Menu m = null;
 
-        for (Menu m : menuList) {
-            for (int i = 0; i < m.getMenuRecipes().size(); i++){
-                if (m.getMenuRecipes().get(i).getId() == recipeId){
+        for (Menu a : currentUser.getMenuList()) {
+            if (a.getId() == menuId){
+                m = a;
+                break;
+            }
+        }
+
+        if (m != null) {
+            for (int i = 0; i < m.getMenuRecipes().size(); i++) {
+                if (m.getMenuRecipes().get(i).getId() == recipeId) {
                     System.out.println("ERROR: This recipe is already in that menu!");
                     response.sendRedirect("../menu.jsp?id=" + menuId);
                     return;
                 }
             }
-        }
 
-        recipeDAO.addRecipeToMenu(recipe, menuId);  //adding recipe to the menu in the database
+            recipeDAO.addRecipeToMenu(recipe, menuId);  //adding recipe to the menu in the database
 
-        for (Menu m : currentUser.getMenuList()) {  //adding the local list the recipe too
-            if (m.getId() == menuId) {
-                m.getMenuRecipes().add(recipe);
-            }
+            m.getMenuRecipes().add(recipe); //adding the recipe to the local list
+
         }
 
         response.sendRedirect("../recipe-sum.jsp");

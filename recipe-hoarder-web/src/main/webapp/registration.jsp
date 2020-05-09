@@ -24,8 +24,11 @@
                         </div>
                         <input name="mail" type="email" class="form-control is-invalid" id="validationServerUsername"
                                aria-describedby="inputGroupPrepend3" required>
+                        <%
+                            if (true) //TODO validations
+                        %>
                         <div class="invalid-feedback">
-                            Please choose a username.
+                            Please write in your unique email address.
                         </div>
                     </div>
                 </div>

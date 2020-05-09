@@ -1,4 +1,4 @@
-package com.vluv.recipe_hoarder_web.controllers.filters;
+package com.vluv.recipe_hoarder_web.controllers;
 
 import com.vluv.recipe_hoarder_core.DAO.UserDAO;
 import com.vluv.recipe_hoarder_core.database.Database;
