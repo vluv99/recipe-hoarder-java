@@ -26,6 +26,5 @@ log/
 
 
 
-database.db
 
 recipe-hoarder-core/src/main/resources/db.properties
