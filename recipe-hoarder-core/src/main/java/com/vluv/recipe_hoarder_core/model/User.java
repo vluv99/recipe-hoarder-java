@@ -17,7 +17,7 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "userId")
     private List<Recipe> recipeList;
     @OneToMany(mappedBy = "userId")
-    private List<Ingredient> shoppingList;
+    private List<ShoppingList_Item> shoppingList;
     @OneToMany(mappedBy = "userId")
     private List<Menu> menuList;
 
@@ -71,11 +71,11 @@ public class User implements Serializable {
         this.recipeList = recipeList;
     }
 
-    public List<Ingredient> getShoppingList() {
+    public List<ShoppingList_Item> getShoppingList() {
         return shoppingList;
     }
 
-    public void setShoppingList(List<Ingredient> shoppingList) {
+    public void setShoppingList(List<ShoppingList_Item> shoppingList) {
         this.shoppingList = shoppingList;
     }
 

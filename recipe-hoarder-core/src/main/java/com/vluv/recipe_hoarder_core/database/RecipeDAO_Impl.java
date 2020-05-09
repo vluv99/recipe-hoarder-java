@@ -251,28 +251,20 @@ public class RecipeDAO_Impl implements RecipeDAO {
         }
     }
 
-
-/*
     @Override
     public List<Recipe> getRecipesOfMenu(int menuId){
         List<Recipe> recipes = new ArrayList<Recipe>();
 
         try (
                 Connection c = DriverManager.getConnection(DBConfig.DB_CONN_STR);
-                PreparedStatement pst = c.prepareStatement("SELECT * FROM recipe WHERE menuId = ?;")
+                PreparedStatement pst = c.prepareStatement("select recipe.* from Menu_Recipes, Recipe where menuId = ? AND Recipe.id = Menu_Recipes.recipeId;")
         ) {
 
             pst.setInt(1, menuId);
             ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
-                Recipe recipe = new Recipe();
-                recipe.setId(rs.getInt("id"));
-                recipe.setUserId(rs.getInt("userId"));
-                recipe.setMenuId(rs.getInt("menuId"));
-                recipe.setName(rs.getString("name"));
-                recipe.setDescription(rs.getString("description"));
-                recipe.setCathegory(rs.getString("cathegory"));
+                Recipe recipe = loadRecipe(rs);
 
                 recipes.add(recipe);
             }
@@ -283,18 +275,16 @@ public class RecipeDAO_Impl implements RecipeDAO {
         }
         return null;
     }
-*/
 
-
-/*
     @Override
-    public boolean deleteRecipeFromMenu(int menuId) {
+    public boolean deleteRecipeFromMenu(int recipeId, int menuId) {
         try (
                 Connection c = DriverManager.getConnection(DBConfig.DB_CONN_STR);
-                PreparedStatement pst = c.prepareStatement("DELETE FROM recipe WHERE menuId = ?;")
+                PreparedStatement pst = c.prepareStatement("DELETE FROM Menu_Recipes WHERE recipeId = ? AND menuId = ?;")
         ) {
 
-            pst.setInt(1, menuId);
+            pst.setInt(1, recipeId);
+            pst.setInt(2, menuId);
 
             return pst.executeUpdate() == 1;
 
@@ -304,6 +294,27 @@ public class RecipeDAO_Impl implements RecipeDAO {
             return false;
         }
     }
-    */
+
+    //TODO add recipe to menu
+    @Override
+    public boolean addRecipeToMenu(Recipe r, int menuId) {
+        boolean resultBool = false;
+        try (
+                Connection c = DriverManager.getConnection(DBConfig.DB_CONN_STR);
+                PreparedStatement pst = c.prepareStatement("INSERT INTO Menu_Recipes (menuId, recipeId) VALUES (?,?);")
+        ) {
+
+            pst.setInt(1, menuId);
+            pst.setInt(2, r.getId());
+
+            resultBool = pst.executeUpdate() == 1;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Can't add the recipe to the menu!");
+
+        }
+        return resultBool;
+    }
 
 }

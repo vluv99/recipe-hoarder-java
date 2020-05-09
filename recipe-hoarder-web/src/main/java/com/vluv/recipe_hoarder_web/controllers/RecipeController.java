@@ -36,16 +36,17 @@ public class RecipeController extends HttpServlet {
         HttpSession session = request.getSession();
         User currentUser = (User) session.getAttribute("currentUser");
 
-        
+
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        request.setCharacterEncoding("UTF-8");
 
         String name = request.getParameter("name");
         String descr = request.getParameter("description");
         String cathegory = request.getParameter("cathegory");
 
         String str = request.getParameter("ingredients");
-        List<String > s = Arrays.asList(str.split("\\r?\\n"));
+        List<String> s = Arrays.asList(str.split("\\r?\\n"));
 
         List<Ingredient> ingredients = new  ArrayList<Ingredient>();
         for (int i = 0; i<s.size(); i++){
@@ -74,7 +75,8 @@ public class RecipeController extends HttpServlet {
             RecipeDAO r = Database.getInstance().getRecipeDAO();
             r.addRecipe(recipe);
             currentUser.getRecipeList().add(recipe);
-            response.sendRedirect("/recipe-sum.jsp");
+
+            response.sendRedirect("../recipe-sum.jsp");
         }
         else {
             out.print("Sorry, you must fill out all the fields!");

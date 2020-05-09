@@ -1,3 +1,19 @@
+<%@ page import="com.vluv.recipe_hoarder_core.model.Menu" %>
+<jsp:useBean id="currentUser" class="com.vluv.recipe_hoarder_core.model.User" scope="session"/>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<% //get the parameter => menu.jsp?id=5
+    int id = Integer.parseInt(request.getParameter("id"));
+    Menu m = new Menu();
+    for (Menu me : currentUser.getMenuList()) { //go through the user's menus
+        if (me.getId() == id) {   //search for the same id
+            m = me;
+            break; //stop if found
+        }
+    }
+%>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -13,78 +29,26 @@
 <%@ include file="WEB-INF/header.jsp" %>
 <main role="main">
     <div class="container">
-            <h1 style="margin-bottom: 40px; margin-top: 30px" class="display-4">Menu's name</h1>
+        <h1 style="margin-bottom: 40px; margin-top: 30px" class="display-4"><%=m.getTitle()%></h1>
 
         <div class="d-flex flex-wrap justify-content-center">
-
-            <div class="card shadow-sm" style="width: 18rem; margin: 40px">
-                <div class="card-body">
-                    <h5 class="card-title">Menu title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">recipe cathegory</h6>
-                    <p class="card-text">description</p>
-                    <ul class="list-inline">
-                        <a href="recipe.jsp" class="card-link list-inline-item">Go to Recipe</a>
-                        <button type="button" class="btn btn-danger list-inline-item">Delete Recipe from Menu</button>
-                    </ul>
+            <c:forEach items="<%=m.getMenuRecipes()%>" var="recipe">
+                <div class="card shadow-sm" style="width: 20rem; margin: 40px">
+                    <div class="card-body">
+                        <h5 class="card-title">${recipe.name}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">${recipe.cathegory}</h6>
+                        <p class="card-text">${recipe.description}</p>
+                        <div class="d-flex justify-content-between">
+                            <a href="recipe.jsp?id=${recipe.id}" style="align-self: center;" class="card-link">Go to
+                                Recipe</a>
+                            <form method="post" action="api/recipe-delete-from-menu">
+                                <input hidden name="menuId" value="<%=m.getId()%>"></input>
+                                <button name="id" value="${recipe.id}" style="margin-top: 17px;" class="btn btn-danger">Delete from Menu</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-
-            <div class="card shadow-sm" style="width: 18rem; margin: 40px">
-                <div class="card-body">
-                    <h5 class="card-title">Menu title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">recipe cathegory</h6>
-                    <p class="card-text">description</p>
-                    <ul class="list-inline">
-                        <a href="recipe.jsp" class="card-link list-inline-item">Go to Recipe</a>
-                        <button type="button" class="btn btn-danger list-inline-item">Delete Recipe from Menu</button>
-                    </ul>
-                </div>
-            </div>
-            <div class="card shadow-sm" style="width: 18rem; margin: 40px">
-                <div class="card-body">
-                    <h5 class="card-title">Menu title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">recipe cathegory</h6>
-                    <p class="card-text">description</p>
-                    <ul class="list-inline">
-                        <a href="recipe.jsp" class="card-link list-inline-item">Go to Recipe</a>
-                        <button type="button" class="btn btn-danger list-inline-item">Delete Recipe from Menu</button>
-                    </ul>
-                </div>
-            </div>
-            <div class="card shadow-sm" style="width: 18rem; margin: 40px">
-                <div class="card-body">
-                    <h5 class="card-title">Menu title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">recipe cathegory</h6>
-                    <p class="card-text">description</p>
-                    <ul class="list-inline">
-                        <a href="recipe.jsp" class="card-link list-inline-item">Go to Recipe</a>
-                        <button type="button" class="btn btn-danger list-inline-item">Delete Recipe from Menu</button>
-                    </ul>
-                </div>
-            </div>
-            <div class="card shadow-sm" style="width: 18rem; margin: 40px">
-                <div class="card-body">
-                    <h5 class="card-title">Menu title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">recipe cathegory</h6>
-                    <p class="card-text">description</p>
-                    <ul class="list-inline">
-                        <a href="recipe.jsp" class="card-link list-inline-item">Go to Recipe</a>
-                        <button type="button" class="btn btn-danger list-inline-item">Delete Recipe from Menu</button>
-                    </ul>
-                </div>
-            </div>
-            <div class="card shadow-sm" style="width: 18rem; margin: 40px">
-                <div class="card-body">
-                    <h5 class="card-title">Menu title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">recipe cathegory</h6>
-                    <p class="card-text">description</p>
-                    <ul class="list-inline">
-                        <a href="recipe.jsp" class="card-link list-inline-item">Go to Recipe</a>
-                        <button type="button" class="btn btn-danger list-inline-item">Delete Recipe from Menu</button>
-                    </ul>
-                </div>
-            </div>
+            </c:forEach>
 
         </div>
     </div>

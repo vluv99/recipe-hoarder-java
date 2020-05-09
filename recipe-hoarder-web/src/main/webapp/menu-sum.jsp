@@ -1,3 +1,7 @@
+<jsp:useBean id="currentUser" class="com.vluv.recipe_hoarder_core.model.User" scope="session"/>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -16,13 +20,13 @@
         <ul class="list-inline">
             <h1 style="margin-bottom: 40px; margin-top: 30px" class="display-4 list-inline-item">Menus</h1>
 
-            <form action="" method="">
+            <form action="api/menu" method="post">
                 <div class="form-row">
                     <div class="input-group mb-3">
-                        <input name="manu-name" type="text" class="form-control" placeholder="Menu's name"
+                        <input name="title" type="text" class="form-control" placeholder="Menu's name"
                                aria-label="Recipient's username" aria-describedby="button-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Create New Menu
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Create New Menu
                             </button>
                         </div>
                     </div>
@@ -33,17 +37,21 @@
 
         <div class="d-flex flex-wrap justify-content-center">
 
-            <div class="card shadow-sm" style="width: 18rem; margin: 25px">
-                <div class="card-body">
-                    <h5 class="card-title">Menu title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">recipe no: 3</h6>
-                    <p class="card-text">description</p>
-                    <ul class="list-inline">
-                        <a href="menu.jsp" class="card-link list-inline-item">Go to Menu</a>
-                        <button type="button" class="btn btn-danger list-inline-item">Delete Menu</button>
-                    </ul>
+            <c:forEach items="${currentUser.menuList}" var="menu">
+                <div class="card shadow-sm" style="width: 18rem; margin: 25px">
+                    <div class="card-body">
+                        <h5 class="card-title"><c:out value="${menu.title}"/></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">recipe no.: ${menu.menuRecipes.size()} </h6>
+                        <div class="d-flex justify-content-between">
+                            <a href="menu.jsp?id=${menu.id}" style="align-self: center;" class="card-link">Go to
+                                Menu</a>
+                            <form action="api/menu-delete" method="post">
+                                <button name="id" value="${menu.id}" style="margin-top: 17px;" class="btn btn-danger">Delete Menu</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </c:forEach>
 
         </div>
     </div>

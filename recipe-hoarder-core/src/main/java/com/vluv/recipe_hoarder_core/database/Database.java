@@ -1,14 +1,10 @@
 package com.vluv.recipe_hoarder_core.database;
 
-import com.vluv.recipe_hoarder_core.DAO.IngredientDAO;
 import com.vluv.recipe_hoarder_core.DAO.MenuDAO;
 import com.vluv.recipe_hoarder_core.DAO.RecipeDAO;
 import com.vluv.recipe_hoarder_core.DAO.UserDAO;
 
 import javax.management.InstanceAlreadyExistsException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 
 public class Database {
@@ -60,10 +56,5 @@ public class Database {
     public MenuDAO getMenuDAO() {
         return new MenuDAO_Impl();
     }
-
-    public IngredientDAO getIngredientDAO() {
-        return new IngredientDAO_Impl();
-    }
-
 
 }

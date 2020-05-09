@@ -1,3 +1,7 @@
+<jsp:useBean id="currentUser" class="com.vluv.recipe_hoarder_core.model.User" scope="session"/>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -15,13 +19,13 @@
     <div class="container">
         <h1 style="margin-bottom: 40px; margin-top: 30px" class="display-4 list-inline-item">Shopping List</h1>
 
-        <form action="" method="">
+        <form action="api/shoppingList-add" method="post">
             <div class="form-row">
                 <div class="input-group mb-3">
                     <input name="list-item" type="text" class="form-control" placeholder="1 kg potato"
                            aria-label="Recipient's username" aria-describedby="button-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-list-item">Add Ingredient to
+                        <button class="btn btn-outline-secondary" type="submit" id="button-list-item">Add Ingredient to
                             List
                         </button>
                     </div>
@@ -36,22 +40,16 @@
                 <div class="card-body">
 
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <div style="margin-right: 20px;align-self: center;">2 kg krumpli</div>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <div style="margin-right: 20px;align-self: center;">2 kg krumpli banan </div>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <div style="margin-right: 20px;align-self: center;">2 kg ground beef with sauce</div>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <div style="margin-right: 20px;align-self: center;">2 kg apple or pear</div>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </li>
+                        <form action="api/shoppingList-delete" method="post">
+                        <c:forEach items="${currentUser.shoppingList}" var="item">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <div style="margin-right: 20px;align-self: center;"><c:out value="${item.name_amount}"/></div>
+                                <button name="id" value="${item.id}" class="btn btn-danger">
+                                    Delete
+                                </button>
+                            </li>
+                        </c:forEach>
+                        </form>
                     </ul>
                 </div>
             </div>

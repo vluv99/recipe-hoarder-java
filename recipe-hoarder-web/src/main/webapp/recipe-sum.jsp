@@ -51,19 +51,22 @@
                         </h5>
                         <h6 class="card-subtitle mb-2 text-muted"><c:out value="${recipe.cathegory}"/></h6>
                         <p class="card-text"><c:out value="${recipe.description}"/></p>
-                        <ul class="list-inline">
+                        <ul class="list-inline" style="margin-bottom: 0">
                             <a href="recipe.jsp?id=${recipe.id}" class="card-link list-inline-item">Go to Recipe</a>
-                            <div class="dropdown list-inline-item">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Add to Menu
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">one of my menus</a>
-                                    <a class="dropdown-item" href="#">another one of my menus</a>
-                                    <a class="dropdown-item" href="#">listing up existing menus</a>
-                                </div>
-                            </div>
+                                <form class="list-inline-item">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                            Add to Menu
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <c:forEach items="${currentUser.menuList}" var="menu">
+                                                <button class="dropdown-item" type="button">${menu.title}</button>
+                                            </c:forEach>
+                                        </div>
+                                    </div>
+                                </form>
                         </ul>
                     </div>
                 </div>

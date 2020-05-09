@@ -7,7 +7,7 @@
     int id = Integer.parseInt(request.getParameter("id"));
     Recipe rec = new Recipe();
     for (Recipe r : currentUser.getRecipeList()) { //go through the user's recipes
-        if (r.getId() == id){   //search for the same id
+        if (r.getId() == id) {   //search for the same id
             rec = r;
             break; //stop if found
         }
@@ -44,7 +44,8 @@
 
                 <dl class="row">
                     <dt class="col-sm-3">Description</dt>
-                    <dd class="col-sm-9 font-italic"><%=rec.getDescription()%></dd>
+                    <dd class="col-sm-9 font-italic"><%=rec.getDescription()%>
+                    </dd>
 
                     <dt class="col-sm-3">Ingredients</dt>
                     <dd class="col-sm-9">
@@ -66,12 +67,20 @@
                 </dl>
             </div>
             <div class="card-footer bg-transparent border-dark d-flex justify-content-between">
-                <button type="button" class="list-inline-item btn btn-secondary">Add Ingredients to Shopping List
-                </button>
+                <form action="api/recipe-ingredients-to-shopping-list" method="post">
+                <button name="id" value="<%=rec.getId()%>" class="list-inline-item btn btn-secondary">Add Ingredients to Shopping List</button>
+                </form>
 
+                <!--
+                <%
+                    if (true) { //condition if the recipe is in a menu or not
+                %>
                 <button type="button" class="btn btn-warning">Back to Menu</button>
+                <% } %>-->
 
-                <button type="button" class="list-inline-item btn btn-danger">Delete Recipe</button>
+                <form action="api/recipe-delete" method="post">
+                    <button name="id" value="<%=rec.getId()%>" class="list-inline-item btn btn-danger">Delete Recipe</button>
+                </form>
             </div>
         </div>
 

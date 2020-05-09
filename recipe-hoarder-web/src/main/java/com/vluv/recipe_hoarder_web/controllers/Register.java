@@ -27,6 +27,7 @@ public class Register extends HttpServlet {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        request.setCharacterEncoding("UTF-8");
 
         String mail = request.getParameter("mail");
         String pass = request.getParameter("password");
