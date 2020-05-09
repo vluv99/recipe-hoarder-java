@@ -53,8 +53,17 @@
                         <p class="card-text"><c:out value="${recipe.description}"/></p>
                         <ul class="list-inline" style="margin-bottom: 0">
                             <a href="recipe.jsp?id=${recipe.id}" class="card-link list-inline-item">Go to Recipe</a>
-                                <form class="list-inline-item">
-                                    <div class="dropdown">
+                            <form action="api/add-recipe-to-menu" method="post" class="list-inline-item">
+                                <!--<div class="form-group">
+                                    <select class="form-control">
+                                        <option selected>Add to Menu</option>
+                                        <c:forEach items="${currentUser.menuList}" var="menu">
+                                            <input hidden name="recipeId" value="${recipe.id}">
+                                            <option name="menuId" value="${menu.id}"><c:out value="${menu.title}"/></option>
+                                        </c:forEach>
+                                    </select>
+                                </div>-->
+                                <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button"
                                                 id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false">
@@ -62,11 +71,12 @@
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                             <c:forEach items="${currentUser.menuList}" var="menu">
-                                                <button class="dropdown-item" type="button">${menu.title}</button>
+                                                <input hidden name="recipeId" value="${recipe.id}">
+                                                <button name="menuId" value="${menu.id}" class="dropdown-item" type="submit">${menu.title}</button>
                                             </c:forEach>
                                         </div>
                                     </div>
-                                </form>
+                            </form>
                         </ul>
                     </div>
                 </div>

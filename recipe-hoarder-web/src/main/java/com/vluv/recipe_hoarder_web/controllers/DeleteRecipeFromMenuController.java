@@ -41,8 +41,7 @@ public class DeleteRecipeFromMenuController extends HttpServlet {
         int menuId = Integer.parseInt(request.getParameter("menuId"));
         recipeDAO.deleteRecipeFromMenu(id, menuId); //delete recipe from the menu in the database
 
-        for (Menu m : currentUser.getMenuList()) {
-
+        for (Menu m : currentUser.getMenuList()) {  //deleting from the user's list
             if (m.getId() == menuId) {
                 for (int i = 0; i < m.getMenuRecipes().size(); i++) {
                     if (m.getMenuRecipes().get(i).getId() == id) {
