@@ -1,9 +1,14 @@
 package com.vluv.recipe_hoarder_core.database;
 
+import com.aper_lab.scraperlib.RecipeAPIService;
 import com.vluv.recipe_hoarder_core.DAO.RecipeDAO;
 import com.vluv.recipe_hoarder_core.model.Direction;
 import com.vluv.recipe_hoarder_core.model.Ingredient;
 import com.vluv.recipe_hoarder_core.model.Recipe;
+import com.vluv.recipe_hoarder_core.model.User;
+import kotlin.coroutines.Continuation;
+import kotlin.coroutines.CoroutineContext;
+import org.jetbrains.annotations.NotNull;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -69,6 +74,38 @@ public class RecipeDAO_Impl implements RecipeDAO {
         return resultBool;
     }
 
+    public Recipe addRecipeFromURL(User u, String s) {
+
+        com.aper_lab.scraperlib.data.Recipe r = (com.aper_lab.scraperlib.data.Recipe) RecipeAPIService.INSTANCE.getRecipeFromUrl(s, false);
+
+        Recipe recipe = Recipe.fromScraperModel(r);
+        recipe.setUserId(u.getId());
+        boolean a = addRecipe(recipe);
+
+        if (a) {
+            //add directions, add ingredients
+            for (Direction d : recipe.getDirections()) {
+                d.setRecipeId(recipe.getId());
+                boolean res = addRecipeDirection(recipe, d);
+                if (!res) {
+                    System.out.println("ERROR: Can't save directions");
+                    return null;
+                }
+            }
+
+            for (Ingredient d : recipe.getIngredients()) {
+                d.setRecipeId(recipe.getId());
+                boolean res = addRecipeIngredient(recipe, d);
+                if (!res) {
+                    System.out.println("ERROR: Can't save ingredients");
+                    return null;
+                }
+            }
+
+        }
+
+        return a?recipe:null;
+    }
 
     @Override
     public List<Recipe> getRecipesOfUser(int userId) {
@@ -252,7 +289,7 @@ public class RecipeDAO_Impl implements RecipeDAO {
     }
 
     @Override
-    public List<Recipe> getRecipesOfMenu(int menuId){
+    public List<Recipe> getRecipesOfMenu(int menuId) {
         List<Recipe> recipes = new ArrayList<Recipe>();
 
         try (

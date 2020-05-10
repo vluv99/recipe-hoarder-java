@@ -12,6 +12,8 @@
         <module>recipe-hoarder-core</module>
         <module>recipe-hoarder-web</module>
         <module>recipe-hoarder-test</module>
+        <module>scraperlib</module>
+        <module>recipe-hoarder-app</module>
     </modules>
 
     <properties>

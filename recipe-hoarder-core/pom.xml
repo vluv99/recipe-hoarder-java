@@ -60,6 +60,14 @@
             <artifactId>bcrypt</artifactId>
             <version>0.9.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.vluv</groupId>
+            <artifactId>scraperlib</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
 
 

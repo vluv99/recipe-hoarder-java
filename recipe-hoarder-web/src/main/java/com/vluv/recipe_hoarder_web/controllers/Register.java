@@ -52,6 +52,7 @@ public class Register extends HttpServlet {
 
             session.setAttribute("email", mail);
             session.setAttribute("password", pass);
+            session.setAttribute("currentUser", user);
 
             //RequestDispatcher rd = request.getRequestDispatcher("recipe-sum.jsp");
             //rd.forward(request, response);

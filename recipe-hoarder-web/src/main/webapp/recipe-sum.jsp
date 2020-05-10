@@ -9,14 +9,14 @@
     List<Recipe> searchList = new ArrayList<Recipe>();
     String str = request.getParameter("search");
     String str_type = request.getParameter("type_search");
-    if (str != null){
+    if (str != null && !str.isEmpty()){
         for (Recipe r : currentUser.getRecipeList()) {
             if (r.getName().toLowerCase().contains(str.toLowerCase())){
                 searchList.add(r);
             }
         }
         request.removeAttribute("search");
-    }else if (str_type != null) {
+    }else if (str_type != null  && !str_type.isEmpty()) {
         for (Recipe r : currentUser.getRecipeList()) {
             if(str_type.equals(r.getCathegory())){
                 searchList.add(r);

@@ -41,6 +41,29 @@ public class RecipeController extends HttpServlet {
         PrintWriter out = response.getWriter();
         request.setCharacterEncoding("UTF-8");
 
+        String url = request.getParameter("url");
+        if (url == null){
+            manualRecipeAdd(request, response, currentUser, out);
+        }else {
+            urlRecipeAdd(request, response, currentUser, out, url);
+        }
+
+    }
+
+    private void urlRecipeAdd(HttpServletRequest request, HttpServletResponse response, User currentUser, PrintWriter out, String url) throws IOException, ServletException {
+        Recipe recipe = Database.getInstance().getRecipeDAO().addRecipeFromURL(currentUser, url);
+
+        if(recipe != null){
+            currentUser.getRecipeList().add(recipe);
+            response.sendRedirect("../recipe-sum.jsp");
+        }else {
+            out.print("Sorry, you must fill out all the field!");
+            RequestDispatcher rd=request.getRequestDispatcher("/recipe_hoarder_java_war/api/recipe");
+            rd.include(request, response);
+        }
+    }
+
+    private void manualRecipeAdd(HttpServletRequest request, HttpServletResponse response, User currentUser, PrintWriter out) throws IOException, ServletException {
         String name = request.getParameter("name");
         String descr = request.getParameter("description");
         String cathegory = request.getParameter("cathegory");
@@ -48,7 +71,7 @@ public class RecipeController extends HttpServlet {
         String str = request.getParameter("ingredients");
         List<String> s = Arrays.asList(str.split("\\r?\\n"));
 
-        List<Ingredient> ingredients = new  ArrayList<Ingredient>();
+        List<Ingredient> ingredients = new ArrayList<Ingredient>();
         for (int i = 0; i<s.size(); i++){
             Ingredient ing = new Ingredient();
             ing.setName_amount(s.get(i));

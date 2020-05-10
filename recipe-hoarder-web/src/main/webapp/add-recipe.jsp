@@ -21,11 +21,11 @@
         <form action="api/recipe" method="post">
             <div class="form-row">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Recipe's URL"
+                    <input name="url" type="text" class="form-control" placeholder="Recipe's URL"
                            aria-label="https://www.delish.com/cooking/recipe-ideas/recipes/a55501/best-goulash-recipe/"
                            aria-describedby="button-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add Recipe from URL
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Add Recipe from URL
                         </button>
                     </div>
                 </div>

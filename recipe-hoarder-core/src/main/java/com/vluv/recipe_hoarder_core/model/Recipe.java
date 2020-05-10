@@ -5,19 +5,17 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table( name = "RECIPE" )
+
 public class Recipe implements Serializable {
-    @Id
-    @GeneratedValue
+
     private Integer id;
     private Integer userId;
     //private Integer menuId;
     private String name;
     private String description;
-    @OneToMany(mappedBy = "recipeId")
+
     private List<Ingredient> ingredients = new ArrayList<>();
-    @ElementCollection
+
     private List<Direction> directions = new ArrayList<>();
     private String cathegory;
     /*nehezseg
@@ -89,14 +87,28 @@ public class Recipe implements Serializable {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
-/*
-    public Integer getMenuId() {
-        return menuId;
-    }
 
-    public void setMenuId(Integer menuId) {
-        this.menuId = menuId;
-    }
 
- */
+    public static Recipe fromScraperModel(com.aper_lab.scraperlib.data.Recipe r){
+        Recipe res = new Recipe();
+        res.name = r.getName();
+        res.description = r.getDescription();
+        for (com.aper_lab.scraperlib.data.Ingredient i : r.getIngredients()) {
+            Ingredient ingredient = new Ingredient();
+            ingredient.setName_amount(i.getName());
+
+            res.ingredients.add(ingredient);
+        }
+        for (com.aper_lab.scraperlib.data.RecipeStep s : r.getDirections()) {
+            Direction d = new Direction();
+            d.setOrderNumber(s.getNum());
+            d.setDirection(s.getText());
+
+            res.directions.add(d);
+        }
+
+        res.setCathegory("Miscellaneous");
+
+        return res;
+    }
 }

@@ -1,5 +1,6 @@
 package com.vluv.recipe_hoarder_core.database;
 
+import com.aper_lab.scraperlib.RecipeAPIService;
 import com.vluv.recipe_hoarder_core.DAO.MenuDAO;
 import com.vluv.recipe_hoarder_core.DAO.RecipeDAO;
 import com.vluv.recipe_hoarder_core.DAO.UserDAO;
@@ -36,6 +37,7 @@ public class Database {
         // 		IMPORTANT: notice how the name here matches the name we gave the persistence-unit in persistence.xml!
         //entityManagerFactory = Persistence.createEntityManagerFactory("com.vluv.recipe_hoarder_core.model");
         //entityManager = entityManagerFactory.createEntityManager();
+        RecipeAPIService.INSTANCE.initApi(new RecipeScraperDatabase());
 
         try {
             Class.forName("org.sqlite.JDBC");

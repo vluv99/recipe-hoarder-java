@@ -22,14 +22,15 @@ public class App
 
         Database asd = Database.getInstance();
         asd.setUp();
-        UserDAO userDAO = asd.getUserDAO();
+        RecipeDAO recipeDAO = asd.getRecipeDAO();
+       /* UserDAO userDAO = asd.getUserDAO();
 
         userDAO.addUser(new User("Testy","asdasd","asd@asd.com","68752"));
 
         User login = userDAO.login("asd@asd.com","asdasd");
         System.out.println("Login: " + login.getName());
 
-        RecipeDAO recipeDAO = asd.getRecipeDAO();
+
 
         Recipe r =new Recipe(login.getId(),"Flour","Meat meat","MEAT!");
         r.getDirections().add(new Direction(r.getId(),0,"asdasd0"));
@@ -53,6 +54,9 @@ public class App
                 System.out.println(d.getOrderNumber() + " : "+ d.getDirection());
             }
 
-        }
+        }*/
+
+        recipeDAO.addRecipeFromURL(null, "https://www.delish.com/cooking/recipe-ideas/recipes/a52182/hot-cross-buns-recipe/");
+        //System.out.println();
     }
 }
