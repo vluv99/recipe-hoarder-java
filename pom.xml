@@ -8,12 +8,14 @@
     <groupId>com.vluv</groupId>
     <artifactId>recipe-hoarder</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
         <module>recipe-hoarder-core</module>
         <module>recipe-hoarder-web</module>
         <module>recipe-hoarder-test</module>
         <module>scraperlib</module>
         <module>recipe-hoarder-app</module>
+        <module>recipe-hoarder-fxml</module>
     </modules>
 
     <properties>
