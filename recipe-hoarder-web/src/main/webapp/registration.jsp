@@ -14,7 +14,7 @@
 <main role="main" style="margin-top: 100px">
     <div class="container">
         <h1>Register</h1>
-        <form method="post" action="register">
+        <form method="post" action="register" class="needs-validation" novalidate>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="validationServerUsername">Email</label>
@@ -22,11 +22,8 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupPrepend3">@</span>
                         </div>
-                        <input name="mail" type="email" class="form-control is-invalid" id="validationServerUsername"
+                        <input name="mail" type="email" class="form-control" id="validationServerUsername"
                                aria-describedby="inputGroupPrepend3" required>
-                        <%
-                            if (true) //TODO validations
-                        %>
                         <div class="invalid-feedback">
                             Please write in your unique email address.
                         </div>
@@ -34,7 +31,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Password</label>
-                    <input name="password" type="password" class="form-control is-valid" id="inputPassword4">
+                    <input name="password" type="password" class="form-control" id="inputPassword4" required>
                     <div class="invalid-feedback">
                         Please choose a password.
                     </div>
@@ -42,15 +39,15 @@
             </div>
             <div class="form-group">
                 <label for="inputName">Name</label>
-                <input name="name" type="text" class="form-control is-valid" id="inputName" placeholder="Gipsz Jakab">
+                <input name="name" type="text" class="form-control" id="inputName" placeholder="Gipsz Jakab" required>
                 <div class="invalid-feedback">
                     Please give your name.
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputAddress">Address</label>
-                <input name="address" type="text" class="form-control is-valid" id="inputAddress"
-                       placeholder="6724 Szeged, Szentharomsag u. 3.">
+                <input name="address" type="text" class="form-control" id="inputAddress"
+                       placeholder="6724 Szeged, Szentharomsag u. 3." required>
                 <div class="invalid-feedback">
                     Please provide a valid home address.
                 </div>
@@ -60,6 +57,26 @@
         </form>
     </div>
 </main>
+
+<script>
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+// Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+// Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

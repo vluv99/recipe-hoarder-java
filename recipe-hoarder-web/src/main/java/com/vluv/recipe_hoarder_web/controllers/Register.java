@@ -57,11 +57,11 @@ public class Register extends HttpServlet {
             //rd.forward(request, response);
             response.sendRedirect("recipe-sum.jsp");
         }
+        /*
         else {
             out.print("Empty fields!");
             RequestDispatcher rd=request.getRequestDispatcher("/registration.jsp");
             rd.include(request, response);
-
-        }
+        }*/
     }
 }
