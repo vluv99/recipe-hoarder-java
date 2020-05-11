@@ -17,6 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        stage.setTitle("Recipe-hoarder");
         scene = new Scene(loadFXML("Login"));
         stage.setScene(scene);
         stage.show();

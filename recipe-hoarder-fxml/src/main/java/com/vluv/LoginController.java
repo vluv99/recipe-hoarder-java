@@ -5,9 +5,7 @@ package com.vluv;
 public class LoginController {
 
     public void loginButton(){
-
-        
-
+        //TODO finish the login controller
         System.out.println("button clicked successfully!");
 
     }
