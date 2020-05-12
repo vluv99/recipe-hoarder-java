@@ -81,7 +81,7 @@ public class RecipeDAO_Impl implements RecipeDAO {
         Recipe recipe = Recipe.fromScraperModel(r);
         recipe.setUserId(u.getId());
         boolean a = addRecipe(recipe);
-
+/*
         if (a) {
             //add directions, add ingredients
             for (Direction d : recipe.getDirections()) {
@@ -103,7 +103,7 @@ public class RecipeDAO_Impl implements RecipeDAO {
             }
 
         }
-
+*/
         return a?recipe:null;
     }
 
