@@ -1,24 +1,24 @@
 package com.vluv.recipe_hoarder_core.model;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Entity
-@Table( name = "USER" )
+//@Entity
+//@Table( name = "USER" )
 public class User implements Serializable {
-    @Id
-    @GeneratedValue
+    //@Id
+    //@GeneratedValue
     private Integer id;
     private String name;
     private String password;
     private String mail;
     private String address;
-    @OneToMany(mappedBy = "userId")
+    //@OneToMany(mappedBy = "userId")
     private List<Recipe> recipeList;
-    @OneToMany(mappedBy = "userId")
+    //@OneToMany(mappedBy = "userId")
     private List<ShoppingList_Item> shoppingList;
-    @OneToMany(mappedBy = "userId")
+    //@OneToMany(mappedBy = "userId")
     private List<Menu> menuList;
 
     public User() {

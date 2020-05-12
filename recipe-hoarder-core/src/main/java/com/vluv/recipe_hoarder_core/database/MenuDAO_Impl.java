@@ -3,16 +3,13 @@ package com.vluv.recipe_hoarder_core.database;
 import com.vluv.recipe_hoarder_core.DAO.MenuDAO;
 import com.vluv.recipe_hoarder_core.model.*;
 
-import javax.persistence.EntityManager;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MenuDAO_Impl implements MenuDAO {
-    //private EntityManager entityManager;
 
     public MenuDAO_Impl() {
-        //this.entityManager = entityManager;
     }
 
     @Override

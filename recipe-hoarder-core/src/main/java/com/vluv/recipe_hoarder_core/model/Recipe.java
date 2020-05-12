@@ -1,6 +1,6 @@
 package com.vluv.recipe_hoarder_core.model;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

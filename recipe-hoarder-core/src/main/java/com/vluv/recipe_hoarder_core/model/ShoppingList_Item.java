@@ -1,12 +1,12 @@
 package com.vluv.recipe_hoarder_core.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
 import java.io.Serializable;
 
 public class ShoppingList_Item implements Serializable {
-    @Id
-    @GeneratedValue
+    //@Id
+    //@GeneratedValue
     private Integer id;
     private Integer userId;
     private String name_amount;

@@ -1,18 +1,18 @@
 package com.vluv.recipe_hoarder_core.model;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Entity
-@Table( name = "MENU" )
+//@Entity
+//@Table( name = "MENU" )
 public class Menu implements Serializable {
-    @Id
-    @GeneratedValue
+    //@Id
+    //@GeneratedValue
     private Integer id;
     private Integer userId;
     private String title;
-    @OneToMany(mappedBy = "menuId")
+    //@OneToMany(mappedBy = "menuId")
     private List<Recipe> menuRecipes;
     //összido is kellene meg
 

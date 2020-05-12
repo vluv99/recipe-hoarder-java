@@ -19,29 +19,29 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.hibernate</groupId> <!--hibernate-->
+        <!--<dependency>
+            <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.4.15.Final</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId> <!--hibernate enititymanager-->
+            <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>5.4.15.Final</version>
         </dependency>
-        <dependency> <!--hibernate persistance-->
+        <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
             <version>1.0.2.Final</version>
         </dependency>
-        <!-- Hibernate uses jboss-logging for logging, for the tutorials we will use the sl4fj-simple backend -->
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.5</version>
         </dependency>
-        <!-- The tutorials use the H2 in-memory database -->
+
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -50,10 +50,10 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.gwenn</groupId> <!--sqlite for hibernate-->
+            <groupId>com.github.gwenn</groupId>
             <artifactId>sqlite-dialect</artifactId>
             <version>0.1.0</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.xerial</groupId>

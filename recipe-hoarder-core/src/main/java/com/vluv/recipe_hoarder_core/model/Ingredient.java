@@ -1,16 +1,16 @@
 package com.vluv.recipe_hoarder_core.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
+//import javax.persistence.Table;
 import java.io.Serializable;
 
-@Entity
-@Table( name = "INGREDIENTS" )
+//@Entity
+//@Table( name = "INGREDIENTS" )
 public class Ingredient implements Serializable {
-    @Id
-    @GeneratedValue
+    //@Id
+    //@GeneratedValue
     private Integer id;
     private Integer recipeId;
     private String name_amount;

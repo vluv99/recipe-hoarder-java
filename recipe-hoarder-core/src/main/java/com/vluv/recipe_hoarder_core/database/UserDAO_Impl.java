@@ -7,7 +7,6 @@ import com.vluv.recipe_hoarder_core.model.Recipe;
 import com.vluv.recipe_hoarder_core.model.ShoppingList_Item;
 import com.vluv.recipe_hoarder_core.model.User;
 
-import javax.persistence.EntityManager;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
