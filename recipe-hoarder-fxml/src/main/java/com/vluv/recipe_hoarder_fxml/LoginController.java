@@ -1,9 +1,10 @@
 package com.vluv.recipe_hoarder_fxml;
 
-import com.vluv.recipe_hoarder_core.database.Database;
-import com.vluv.recipe_hoarder_core.model.User;
+
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import recipe_hoarder_core.database.Database;
+import recipe_hoarder_core.model.User;
 
 import java.io.IOException;
 
