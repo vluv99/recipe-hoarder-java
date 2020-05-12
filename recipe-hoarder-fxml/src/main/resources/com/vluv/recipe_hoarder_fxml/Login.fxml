@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="300.0" style="-fx-background-color: #808080;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vluv.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="300.0" style="-fx-background-color: #808080;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vluv.recipe_hoarder_fxml.LoginController">
    <center>
       <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="128.0" prefWidth="300.0" BorderPane.alignment="CENTER">
         <columnConstraints>
