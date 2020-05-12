@@ -1,4 +1,4 @@
-package com.vluv;
+package com.vluv.recipe_hoarder_fxml;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +18,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         stage.setTitle("Recipe-hoarder");
-        scene = new Scene(loadFXML("Login"));
+        scene = new Scene(loadFXML("/com/vluv/recipe_hoarder_fxml/Login"));
         stage.setScene(scene);
         stage.show();
     }

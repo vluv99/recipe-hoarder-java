@@ -37,12 +37,12 @@
                   <Insets />
                </GridPane.margin>
             </Button>
-            <PasswordField promptText="********" style="-fx-background-color: #DCDCDC;" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+            <PasswordField promptText="********" style="-fx-background-color: #DCDCDC;" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER" fx:id="password">
                <GridPane.margin>
                   <Insets left="20.0" right="20.0" />
                </GridPane.margin>
             </PasswordField>
-            <TextField promptText="asd@example.com" style="-fx-background-color: #DCDCDC;" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+            <TextField promptText="asd@example.com" style="-fx-background-color: #DCDCDC;" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER" fx:id="userName">
                <GridPane.margin>
                   <Insets left="20.0" right="20.0" />
                </GridPane.margin>

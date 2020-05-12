@@ -1,4 +1,4 @@
-package com.vluv;
+package com.vluv.recipe_hoarder_fxml;
 
 import java.io.IOException;
 import javafx.fxml.FXML;

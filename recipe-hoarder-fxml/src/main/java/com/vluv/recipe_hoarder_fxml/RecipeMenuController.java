@@ -1,4 +1,4 @@
-package com.vluv;
+package com.vluv.recipe_hoarder_fxml;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
