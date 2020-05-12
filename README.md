@@ -59,8 +59,9 @@ Ha a regisztráció vagy a belépés sikeres volt, akkor arre a holnapra leszün
 
 ### WEB
 
-Ha a tomcat sikeresen importálva lerr, akkor csak egyszerűen rá kell nyomni a run-ra, és a buildelések után magától megjelenik.
+Ha a tomcat sikeresen importálva lett, akkor csak egyszerűen rá kell nyomni a run-ra, és a buildelések után magától megjelenik.
 
 ### Application
 
-JAR file
+Az oldalsó Maven menuben a recipe_hoarder (root) jelzésűben a Lifecicle->compile
+és utána a recipe_hoarder_fxml -> plugins -> javafx -> javafx:run
